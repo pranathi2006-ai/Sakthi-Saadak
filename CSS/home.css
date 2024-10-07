@@ -171,11 +171,11 @@ body{
     border: none;
     box-shadow: 2px 2px 5px black;
     margin-bottom: 20px;
-    background-color: rgb(64, 242, 177);
+    background-color:rgb(116, 196, 116);
 }
 
 #Input:hover{
-    background-color: rgba(64, 242, 177, 0.651);
+    background-color:#04a364;
     cursor: pointer;
 }
 
