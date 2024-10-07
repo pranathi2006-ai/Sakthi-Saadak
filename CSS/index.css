@@ -39,14 +39,11 @@ nav{
     top: 0;
     
 }
-.nav-bar{
-    margin-left: auto;
-}
 nav a{
    
     align-items: right;
     text-decoration: none;
-    color: white;
+    color: beige;
     text-align: center;
     font-family:'Roboto', sans-serif;
     font-size: 20px;
