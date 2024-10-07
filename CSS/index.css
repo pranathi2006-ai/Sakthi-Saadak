@@ -153,7 +153,7 @@ img.logo{
     grid-template-columns: repeat(3, 200px);
     gap: 10px;
     max-width: 100%;                                                                                  +
-    justify-content: end;
+    justify-content::end;
 }
 
 .item{
