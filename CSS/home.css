@@ -55,32 +55,39 @@ body{
 }
 
 #Menubox_1{
-    top: 110%;
-    left: 8%;
+    top: 100%;
+    left: 9%;
     min-width: 200px;
     max-height: 150px;
 }
 
 #Menubox_2{
-    top: 110%;
+    top: 100%;
     left: 19.5%;
     min-width: 200px;
     max-height: 200px;
 }
 
 #Menubox_3{
-    top: 110%;
+    top: 100%;
     left: 32%;
     min-width: 250px;
     max-height: 150px;
 }
 
 .Menubox a{
+    display: inline-flex;
+    min-width: 200px;
     text-decoration: none;
     color: white;
 }
 
-.Menubox a:hover{
+.Menubox:hover{
+    display: flex;
+}
+
+.mb_a:hover{
+    display: inline-flex;
     background-color: white;
     color: black;
 }
@@ -88,3 +95,4 @@ body{
 #parent_a_1:hover ~ #Menubox_1, #parent_a_2:hover ~ #Menubox_2, #parent_a_3:hover ~ #Menubox_3{
     display: flex;
 }
+
