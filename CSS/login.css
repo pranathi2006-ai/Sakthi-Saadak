@@ -1,7 +1,8 @@
 
         body {
+            background-color:#004037;
             font-family: sans-serif;
-            background-color: #f4f4f4;
+            
             display: flex;
             align-items: center;
             justify-content: center;
@@ -26,6 +27,7 @@
             margin-bottom: 20px;
         }
 
+       
         input {
             width: 100%;
             padding: 15px;
