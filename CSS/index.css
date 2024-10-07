@@ -19,7 +19,7 @@ body{
 }
 
 nav{
-    background-color:  #004037;
+    background-color:  #4caf50;
     padding: 20px;
     position: sticky;
     top: 0;
@@ -59,7 +59,9 @@ nav a:hover{
 
 div>h1{
     margin-bottom: 10px;
-    font-family: 'Anton', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: helvetica ;
+    font-weight: bold;
+
     font-size: 90px;
     color: beige;
 }
