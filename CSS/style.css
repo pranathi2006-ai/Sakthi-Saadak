@@ -13,14 +13,14 @@ body{
     text-align: center;
     font-size: 40px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: rgb(64, 242, 177);
+   background-color: #011c18;
     color: white;
     padding: 10px;
     background-attachment: fixed;
 }
 
 nav{
-    background-color: black;
+    background-color:  #004037;
     padding: 20px;
     position: sticky;
     top: 0;
@@ -59,9 +59,22 @@ nav a:hover{
 
 div>h1{
     margin-bottom: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 60px;
-    color: white;
+    font-family: 'Anton', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 90px;
+    color: beige;
+}
+
+div>h3{
+    margin-bottom: 10px;
+    font-family: 'Anton', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 90px;
+    color: rgb(123, 218, 123);
+}
+div>h4{
+    margin-bottom: 10px;
+    font-family: 'Anton', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 90px;
+    color: beige;
 }
 
 div>h2{
