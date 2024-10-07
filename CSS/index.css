@@ -1,10 +1,11 @@
+
 *{
     box-sizing: border-box;
     margin: 0px;
 }
 
 body{
-    background-color:  #004037;
+    background-color:  hsl(172, 100%, 13%);
     
 }
 
@@ -32,7 +33,6 @@ body{
 }
 
 nav{
-   
     background-color:  #004037;
     padding: 20px;
     position: sticky;
@@ -41,15 +41,15 @@ nav{
 }
 nav a{
    
-    align-items: right;
+    align-items: center;
     text-decoration: none;
     color: beige;
     text-align: center;
     font-family:'Roboto', sans-serif;
     font-size: 20px;
     padding: 10px;
-    margin: 0 10px;
-    text-align: right;
+    margin: 0 25px;
+    text-align: center;
 }
 
 nav a:hover{
@@ -127,8 +127,10 @@ img.logo{
     padding: 10px 20px;
     font-size: 20px;
     cursor: pointer;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     margin-left: 30px;
+    position: relative;
+    top: -400px;
 }
 
 .styled-button:hover{
@@ -150,10 +152,85 @@ img.logo{
     display: grid;
     grid-template-columns: repeat(3, 200px);
     gap: 10px;
-    max-width: 100%;
-    justify-content: end;
+    max-width: 100%;                                                                                  +
+    justify-content::end;
 }
 
 .item{
-    border-radius: 5px;
+    border-radius: 5px;
+}
+
+.about-section {
+    background-color: #ffffff; /* White background for the section */
+    padding: 20px; /* Padding around section */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 20px auto; /* Centering with margin */
+    max-width: 800px; /* Maximum width */
+}
+
+.about-section h2 {
+    color: #007bff; /* Heading color */
+}
+
+.footer {
+    background-color: #011c18;
+    padding: 20px;
+    text-align: center;
+    color: beige;
+}
+
+
+.footer-links a {
+    color: beige;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px;
+}
+
+.footer-links a:hover {
+    color: rgb(64, 242, 177);
+}
+
+.footer-links {
+    text-align: center; /* Center-aligns all content */
+    padding: 20px; /* Adds some padding */
+    background-color: #333; /* Light background color */
+}
+
+#footer-title {
+    margin: 0; /* Removes default margin */
+}
+
+.social-links {
+    display:flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the links */
+    gap: 15px; /* Space between links */
+    margin: 10px 0; /* Space above and below */
+}
+
+.footer-paragraph {
+    margin: 20px 0;
+    top :-25px; /* Space above and below the paragraph */
+}
+
+.footer-options {
+    margin-top: 1px; /* Adds space before options */
+}
+
+.footer-options ul {
+    font-family:sans-serif;
+    list-style: none; /* Removes bullet points */
+    padding: 0; /* Removes default padding */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the list items */
+    gap: 15px; /* Space between items */
+}
+
+.footer-options a {
+    text-decoration: none; /* Removes underline from links */
+    color: beige; /* Link color */
+}
+.n1{
+    background-color: #333;
 }
