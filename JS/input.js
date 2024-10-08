@@ -287,7 +287,10 @@ function convertTimeToFloat(timeString) {
     return timeMapping[timeString] || 0; 
 }
 
-function badSuggestion(appliance){
+function badSuggestion(appliance, threshold){
+    const inputThreshold = document.getElementById('Threshold');
+    inputThreshold.textContent = "You are using the appliances more than average people." 
+
     if(appliance === 'Refrigerator'){
         const inputSuggestions = document.getElementById('suggestion-list');
         inputSuggestions.innerHTML = '';
@@ -579,12 +582,10 @@ function evaluatePowerConsumption(appliance, time, rating){
 
 function getSuggestions(appliance, company, time, freq, rating){
     if (evaluatePowerConsumption(appliance, time, rating)) {
-        badSuggestion(appliance);
+        badSuggestion(appliance, rating*time);
     } else {
         goodSuggestion(appliance);
     }
-
-
 }
 
 function displayInputValues(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating) {
