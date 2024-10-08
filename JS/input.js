@@ -22,7 +22,7 @@ function updateSubSelect(){
         'Kettle': ['Philips', 'Prestige', 'Bajaj', 'Butterfly', 'Pigeon', 'Havells', 'Kent'],
         'Fans': ['Havells', 'Orient', 'Crompton', 'Usha', 'Bajaj', 'V-Guard', 'Luminous'],
         'Television': ['Samsung', 'LG', 'Sony', 'Xiaomi', 'Oneplus', 'Panasonic', 'TCL', 'Sharp'],
-        'Vaccuum': ['Dyson', 'Eureka Forbes', 'Philips', 'Kent', 'Bosch', 'LG', 'Panasonic'],
+        'Vacuum': ['Dyson', 'Eureka Forbes', 'Philips', 'Kent', 'Bosch', 'LG', 'Panasonic'],
         'Blender': ['Philips', 'Bajaj', 'Prestige', 'Butterfly', 'Sujata', 'Wonderchef', 'Usha', 'Preethi'],
         'Iron': ['Philips', 'Bajaj', 'Havells', 'Usha', 'Orient', 'Crompton', 'Panasonic'],
         'Light': ['Philips', 'Syska', 'Havells', 'Bajaj', 'Orient', 'Crompton', 'Wipro', 'Panasonic'],
@@ -30,19 +30,19 @@ function updateSubSelect(){
     };
 
     const applianceTime = {
-        'Refrigerator': ['Less than 2 HRs', '2-4 HRS', '4-6 HRS', '6-8 HRS', '8-10 HRS', '10-12 HRS', 'More than 12 HRS', 'All Day'],
+        'Refrigerator': ['Less than 2 HRS', '2-4 HRS', '4-6 HRS', '6-8 HRS', '8-10 HRS', '10-12 HRS', 'More than 12 HRS', 'All Day'],
         'Microwave': ['2-5 Mins', '5-10 Mins', '10-15 Mins', '15-20 Mins', '20-30 Mins', 'More than 30 Mins'],
         'Washing Machine': ['0-15 Mins', '15-30 Mins', '30-45 Mins', '45-60 Mins', 'More than 1 HR'],
-        'Electric Stove': ['0-15 Mins', '15-30 Mins', '30-45 Mins', '45-60 Mins', '60-90 Mins', '90-120 Mins', 'More than 2 HR'],
-        'Water Heater': ['0-15 Mins', '15-30 Mins', '30-45 Mins', '45-60 Mins', '60-90 Mins', '90-120 Mins', 'More than 2 HR'],
-        'Dishwasher': ['0-15 Mins', '15-30 Mins', '30-45 Mins', '45-60 Mins', '60-90 Mins', '90-120 Mins', 'More than 2 HR'],
+        'Electric Stove': ['0-15 Mins', '15-30 Mins', '30-45 Mins', '45-60 Mins', '60-90 Mins', '90-120 Mins', 'More than 2 HRS'],
+        'Water Heater': ['0-15 Mins', '15-30 Mins', '30-45 Mins', '45-60 Mins', '60-90 Mins', '90-120 Mins', 'More than 2 HRS'],
+        'Dishwasher': ['0-15 Mins', '15-30 Mins', '30-45 Mins', '45-60 Mins', '60-90 Mins', '90-120 Mins', 'More than 2 HRS'],
         'Kettle': ['0-10 Mins', '10-20 Mins', '20-30 Mins', '30-45 Mins', '45-60 Mins', 'More than 1 HR'],
         'Fans': ['Less than 2 HRS', '2-4 HRS', '4-6 HRS', '6-8 HRS', '8-10 HRS', '10-12 HRS', 'More than 12 HRS', 'All Day'],
         'Television': ['Less than 1 HR', '1-2 HRS', '2-3 HRS', '3-4 HRS', '4-5 HRS', '5-6 HRS', '6-8 HRS', '8-10 HRS', 'More than 10 HRS'],
-        'Vaccuum': ['0-15 Mins', '15-30 Mins', '30-45 Mins', '45-60 Mins', '60-90 Mins', '90-120 Mins', 'More than 2 HRS'],
+        'Vacuum ': ['0-15 Mins', '15-30 Mins', '30-45 Mins', '45-60 Mins', '60-90 Mins', '90-120 Mins', 'More than 2 HRS'],
         'Blender': ['0-10 Mins', '10-20 Mins', '20-30 Mins', '30-40 Mins', '40-50 Mins', '50-60 Mins', 'More than 1 HR'],
         'Iron': ['0-15 Mins', '15-30 Mins', '30-45 Mins', '45-60 Mins', '60-90 Mins', '90-120 Mins', 'More than 2 HRS'],
-        'Light': ['Less than 2 HRs', '2-4 HRS', '4-6 HRS', '6-8 HRS', '8-10 HRS', '10-12 HRS', 'More than 12 HRS'],
+        'Light': ['Less than 2 HRS', '2-4 HRS', '4-6 HRS', '6-8 HRS', '8-10 HRS', '10-12 HRS', 'More than 12 HRS'],
         'Computer': ['Less than 1 HR', '1-2 HRS', '2-3 HRS', '3-4 HRS', '4-5 HRS', '5-6 HRS', '6-8 HRS', '8-10 HRS', 'More than 10 HRS'],
     }
 
@@ -246,6 +246,7 @@ function getUniqueRatings(appliance, company) {
 function convertTimeToFloat(timeString) {
     const timeMapping = {
         'Less than 1 HR': 0.5,
+        'Less than 2 HRS':1.75,
         '1-2 HRS': 1.5,
         '2-3 HRS': 2.5,
         '2-4 HRS': 3,
@@ -257,8 +258,13 @@ function convertTimeToFloat(timeString) {
         '8-10 HRS': 9,
         '10-12 HRS': 11,
         'More than 12 HRS': 13,
+        'MORE than 10 HRS': 11,
         'All Day': 24,
         '2-5 Mins': 0.05,
+        '0-15 Mins':0.125,
+        '15-30 Mins':0.375,
+        '0-10 Mins':0.0833,
+        '10-20 Mins':0.25,
         '5-10 Mins': 0.1,
         '10-15 Mins': 0.25,
         '15-20 Mins': 0.33,
