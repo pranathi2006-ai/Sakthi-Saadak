@@ -9,8 +9,7 @@ body{
 }
 
 .image-container {
-    position: relative;
-    width: 65px; 
+    position: relative; 
 }
 
 .light-image {
@@ -20,17 +19,9 @@ body{
     opacity: 0.9;
 }
 
-#main_heading{
-    text-align: center;
-    font-size: 60px;
 
-    font-family: "Yanone Kaffeesatz", sans-serif;
 
-   background-color: #011c18;
-    color: beige;
-    padding: 10px;
-    background-attachment: fixed;
-}
+ 
 
 nav{
     background-color:  #004037;
@@ -79,7 +70,7 @@ div>h1{
     line-height: 1.1;
     
     font-family: 'Bebas Neue', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 110px;
+    font-size: 100px;
     color: beige;
 }
 .highlight {
@@ -156,24 +147,29 @@ img.logo{
 #main_heading {
     text-align: center;
     font-size: 60px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Yanone Kaffeesatz", sans-serif;
     background-color: #011c18;
     color: beige;
+    font-weight: 350;
     padding: 10px;
 }
 
 /* About Section Styles */
 .about-section {
-    background-color: #ffffff; 
-    padding: 20px; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    margin: 20px auto; 
-    max-width: 800px; 
+    top:-100px;
+    margin-top: auto;
+    background-color: beige; /* Beige background */
+    padding: 0px; /* Padding for the section */
+    margin: 0px auto; /* Center with margin */
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.5;
+    color: #333;
+    text-align: left; /* Align text to the left */
 }
 
 .about-section h2 {
-    color: #007bff; 
+    color:#0eff85; 
 }
 
 

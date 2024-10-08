@@ -41,7 +41,7 @@ body {
     top: 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: flex-start; /* Changed alignment to left */
+    justify-content: flex-start; 
 }
 
 .parent_a {
@@ -63,15 +63,6 @@ body {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
-/*.Menubox {
-    display: none;
-    position: absolute;
-    background-color: wheat;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    padding: 10px;
-    z-index: 1;
-} */
 
 
 .Menubox{
@@ -220,7 +211,7 @@ body {
     top: 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: flex-start; /* Changed alignment to left */
+    justify-content: flex-start; 
 }
 
 .parent_a {

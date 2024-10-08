@@ -13,10 +13,10 @@ body {
 #main_heading {
     text-align: center;
     font-size: 40px;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-weight: 200;
     background-color: #011c18;
     color: beige;
-    font-family: "Yanone Kaffeesatz", sans-serif;
-    font-weight: 350;
     padding: 20px;
     background-attachment: fixed;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -37,7 +37,7 @@ body {
     top: 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: flex-start; /* Changed alignment to left */
+    justify-content: flex-start; 
 }
 
 .parent_a {
@@ -119,7 +119,7 @@ h2 {
     padding: 30px;
     margin: 20px 40px;
     margin-bottom: 40px;
-    max-width: 1400px;
+    max-width: 1200px;
 }
 
 .text_section {
@@ -166,11 +166,11 @@ h2 {
 #Input:hover {
     background-color: #04a364;
     cursor: pointer;
-} */
+} 
 #Input {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
-    display: block;  /* Makes the button a block element */
+    display: block;  
     margin: 30px auto 40px auto;
     padding: 30px;
     border-radius: 20px;
@@ -242,13 +242,13 @@ h2 {
 }
 
 .nav-icon {
-    width: 100px; /* Adjust the icon size */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: -10px; /* Space between icon and heading */
+    width: 100px; 
+    height: auto; 
+    margin-bottom: -10px; 
 }
 .nav-logo{
-    width: 175px; /* Adjust the icon size */
-    height: auto; /* Maintain aspect ratio */
+    width: 175px; 
+    height: auto; 
     margin-bottom: -35px;
     
 }
