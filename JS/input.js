@@ -106,19 +106,16 @@ function updateSubSelect(){
         selectedFreq = freqSelect.value;
     }
 
-    getSuggestions(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating);
-
     const button = document.getElementById('Input'); 
         if (button) {
             button.addEventListener('click', () => {
                 displayInputValues(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating);
+                getSuggestions(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating);
             });
         } else {
             console.error('Element not found');
         }
-    } 
-
-
+} 
 
 function getUniqueRatings(appliance, company) {
     const applianceRating = {
@@ -290,128 +287,303 @@ function convertTimeToFloat(timeString) {
     return timeMapping[timeString] || 0; 
 }
 
-
-
 function badSuggestion(appliance){
-
-}
-
-function goodSuggestion(appliance){
-
-}
-
-function getSuggestions(appliance, company, time, freq, rating){
     if(appliance === 'Refrigerator'){
-        if(rating * time > 150*24){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Adjust the Temperature: Adjust the refrigerator to 3-4 °C, and the freezer to -18 °C to chill perfectly.',
+            'Do Not Overload: Do not overload the chamber since that reduces air circulation and overworks the compressor.',
+            'Let a gap at the back of the fridge for proper air circulation and dissipation of heat.',
+            'Defrost Often: If it\'s not frost-free, then defrost the freezer regularly for better efficiency.',
+            'Energy-Efficient Models: Upgrade to BEE 5-star rated fridge because it saves 20-30% of your electricity being consumed for this purpose.'
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
 
     if(appliance === 'Microwave'){
-        if(rating * time > 1000*0.5){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }  
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Use Microwave for Quick Jobs: Microwave is much handier for quick little jobs than the oven.',
+            'We can cook in batches so that it does not get overheated.',
+            'Use microwave-safe cookware: The proper cookware hastens the process and reduces energy consumption.',
+            'Turn off and unplug: Switch off standby power by unplugging the microwave.'
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
 
     if(appliance === 'Washing Machine'){
-        if(rating * time > 700*0.5){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }  
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Use Cold Water: Run your dishwasher cycles using cold water to save on heating costs.',
+            'Wash only full loads : Maximum efficiency through full loads.',
+            'Energy-Saving Appliances: An alternative option is a front-load machine that consumes less energy and water.',
+            'Energy-Saving Appliances: An alternative option is a front-load machine that consumes less energy and water.'
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
 
     if(appliance === 'Electric Stove'){
-        if(rating * time > 1500*1){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }  
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Use the right size cookware: always use cookware size that corresponds to the heating element to reduce waste.',
+            'Lid On When Cooking: Put on pots lid to keep heat retained and not take longer time in cooking.',
+            'Preheat only if it is needed to conserve energy.',
+            'Switch Off Early Switch off just in time before food gets done so that one can use residual heat.'
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
 
     if(appliance === 'Water Heater'){
-        if(rating * time > 2000*0.5){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }  
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Set the Thermostat: to around 50°C; seldom needed for most applications.',
+            'Take shorter showers. Install a low-flow showerhead optionally.',
+            'Turn Off After Use: Switch off the heater to prevent constant re- warming.',
+            'Insulate water pipes for them to retain the heat longer without their need to reheat again.'
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
 
     if(appliance === 'Dishwasher'){
-        if(rating * time > 1500*1){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }  
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Run only Full Loads. Run your dishwasher only when its full.',
+            'Air-dry instead of heat-drying. Switch off the heat-drying option to reduce energy consumption.',
+            'Use the Eco Setting: If an eco-setting is available then use this since it conserves water and energy.',
+            'Scour rather than flush Scour off food rather than pre-washing in hot water.'
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
 
     if(appliance === 'Kettle'){
-        if(rating * time > 1500*0.5){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }  
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Boil Only What You Need Boil only what you need.',
+            'Regular Descale: Ensures frequent descaling improves efficiency.',
+            'Lid Usage Lid retains the heat that was trapped in the process of boiling.',
+            'Turn It Off at Once: Switch off once the water starts boiling.'
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
 
-    if(appliance === 'Fans'){
-        if(rating * time > 70*8){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }  
+    if(appliance === 'Fan'){
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Fan Speed: Keep this as low as possible.',
+            'When not in use: Switch off the fan while leaving a room.',
+            'Upgrade to the latest 5-star models from BEE, which consume much less power.',
+            'It rotates counterclockwise and clockwise at low speed in winters and in summers it rotates.'
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
 
     if(appliance === 'Television'){
-        if(rating * time > 120*4){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }  
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Use Energy-Saving Mode: Activate energy-saving or eco-mode.',
+            'Off, not on stand-by: Switch off the television completely instead of leaving it on a stand-by.',
+            'Screen Brightness Control Dimmed the brightness a bit to save energy.',
+            'Smart TV Options: Upgrade to a smart, energy-efficient television, if your model is older.'
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
 
     if(appliance === 'Vacuum'){
-        if(rating * time > 1000*0.5){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }  
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Vacate only if necessary: Vacate only if absolutely necessary or less often.',
+            'Upgrade to an energy-efficient model and upgrade to a high Energy Star rating model.',
+            'Maintain Filters: For optimal operation and minimum power consumption, keep the filters clean.'
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
 
     if(appliance === 'Blender'){
-        if(rating * time > 500*0.2){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }  
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Use less pulsating pulses: Run it intermittently, rather than continuously.',
+            'Right Size for the Task: Used just the right size containers and combined only just enough.'
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
 
     if(appliance === 'Iron'){
-        if(rating * time > 1500*0.5){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }  
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Iron of Bulk: Iron clothes in bulk to reduce heating frequency.',
+            'Then, Use Appropriate Temperature: temperature differs from fabric type.',
+            'Off Before Finished: Shut off a few minutes before finished in order to use any remaining heat.',
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
 
     if(appliance === 'Light'){
-        if(rating * time > 20*8){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }  
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Turn off lights when leaving a room. TURN OFF WHEN NOT IN USE.',
+            'Switch- Most lights remain ON in rooms. Use sensors in such places.',
+            'Use natural light to the fullest and minimize the use of artificial light.',
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
 
     if(appliance === 'Computer'){
-        if(rating * time > 250*4){
-            badSuggestion(appliance);
-        } else {
-            goodSuggestion(appliance);
-        }  
+        const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Enable Power Saving Mode: Sleep the computer when idle.',
+            'Shutdown of Devices: Each device must be shut down in case it is idle.',
+            'Transition to a Laptop: Use laptop as an alternative for daily use.',
+            'Power settings: Allows your desktop to automatically shut down following a certain time of inactivity.'
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
     }
+
+}
+
+
+function goodSuggestion(appliance){
+    const inputSuggestions = document.getElementById('suggestion-list');
+        inputSuggestions.innerHTML = '';
+
+        const suggestions = [
+            'Use appliances during off-peak hours: High-power appliances should be used during cheaper off-peak hours.',
+            'Ungroup appliances: remove standby power by unplugging appliances when not in use.',
+            'Routine Maintenance: Appliances must be cleaned regularly, and serviced for optimal performance.'
+        ];
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            inputSuggestions.appendChild(listItem);
+        });
+}
+
+function evaluatePowerConsumption(appliance, time, rating){
+    const thresholds = {
+        'Refrigerator': 150 * 24,
+        'Microwave': 1000 * 0.5,
+        'Washing Machine': 700 * 0.5,
+        'Electric Stove': 1500 * 1,
+        'Water Heater': 2000 * 0.5,
+        'Dishwasher': 1500 * 1,
+        'Kettle': 1500 * 0.5,
+        'Fans': 70 * 8,
+        'Television': 120 * 4,
+        'Vacuum': 1000 * 0.5,
+        'Blender': 500 * 0.2,
+        'Iron': 1500 * 0.5,
+        'Light': 20 * 8,
+        'Computer': 250 * 4
+    };
+
+    return (rating * time) > thresholds[appliance];
+}
+
+function getSuggestions(appliance, company, time, freq, rating){
+    if (evaluatePowerConsumption(appliance, time, rating)) {
+        badSuggestion(appliance);
+    } else {
+        goodSuggestion(appliance);
+    }
+
 
 }
 
@@ -430,6 +602,7 @@ function displayInputValues(selectedAppliance, selectedCompany, selectedTime, se
     inputValuesBody.appendChild(newRow);
 
     inputHeader.textContent = `${selectedRating*selectedTime}W`;
+    
 }
 
 
