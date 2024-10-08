@@ -152,25 +152,38 @@ img.logo{
 }
 
 
-/* About Section Styles */
 .about-section {
-    top:-100px;
-    margin-top: auto;
-    background-color: beige; /* Beige background */
-    padding: 0px; /* Padding for the section */
-    margin: 0px auto; /* Center with margin */
-    font-size: 18px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    line-height: 1.5;
-    color: #333;
-    text-align: left; /* Align text to the left */
+    align-items: start;
+    color: beige;
+    border-radius: 20px; /* Curved edges */
+    padding: 40px;
+    margin: 20px auto; /* Center the container */
+    max-width: 600px; /* Limit the width */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add some shadow */
+    text-align: left; /* Center text */
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 20px;
+    font-size: medium;
 }
 
 .about-section h2 {
-    color:#0eff85; 
+    margin-bottom: 20px;
+    font-size: 35px;
 }
 
-
+.about-container p {
+    font-size: 16px;
+    line-height: 1.5;
+    align-items: start;
+    justify-content: flex-start;
+    padding: 20px;
+}
+    .about-image {
+        width: 300px; /* Set the desired width */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 10px; /* Optional: Rounded corners */
+        margin-right: 20px; /
+}
 .footer {
     background-color: #011c18;
     padding: 20px;
