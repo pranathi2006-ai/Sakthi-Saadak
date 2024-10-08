@@ -279,6 +279,125 @@ function convertTimeToFloat(timeString) {
     return timeMapping[timeString] || 0; 
 }
 
-function getSuggestions(appliance, company, time, freq, rating){
+function badSuggestion(appliance){
     
+}
+
+function goodSuggestion(appliance){
+
+}
+
+function getSuggestions(appliance, company, time, freq, rating){
+    if(appliance === 'Refrigerator'){
+        if(rating * time > 150*24){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }
+    }
+
+    if(appliance === 'Microwave'){
+        if(rating * time > 1000*0.5){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }  
+    }
+
+    if(appliance === 'Washing Machine'){
+        if(rating * time > 700*0.5){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }  
+    }
+
+    if(appliance === 'Electric Stove'){
+        if(rating * time > 1500*1){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }  
+    }
+
+    if(appliance === 'Water Heater'){
+        if(rating * time > 2000*0.5){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }  
+    }
+
+    if(appliance === 'Dishwasher'){
+        if(rating * time > 1500*1){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }  
+    }
+
+    if(appliance === 'Kettle'){
+        if(rating * time > 1500*0.5){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }  
+    }
+
+    if(appliance === 'Fans'){
+        if(rating * time > 70*8){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }  
+    }
+
+    if(appliance === 'Television'){
+        if(rating * time > 120*4){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }  
+    }
+
+    if(appliance === 'Vaccuum'){
+        if(rating * time > 1000*0.5){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }  
+    }
+
+    if(appliance === 'Blender'){
+        if(rating * time > 500*0.2){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }  
+    }
+
+    if(appliance === 'Iron'){
+        if(rating * time > 1500*0.5){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }  
+    }
+
+    if(appliance === 'Light'){
+        if(rating * time > 20*8){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }  
+    }
+
+    if(appliance === 'Computer'){
+        if(rating * time > 250*4){
+            badSuggestion(appliance);
+        } else {
+            goodSuggestion(appliance);
+        }  
+    }
+
 }
