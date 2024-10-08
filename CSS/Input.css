@@ -332,12 +332,18 @@ h2 {
     background-color: #04a364;
     cursor: pointer;
 }
+
 .output-section {
+    display: none;
     margin: 20px;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#Input:focus ~ .output-section{
+    display: block;
 }
 
 .output-section h2 {
@@ -359,7 +365,7 @@ h2 {
 #total-power {
     font-size: 24px;
     font-weight: bold;
-    color: #0eff85; /* Highlight color */
+    color: #0eff85; 
 }
 
 #details-container {

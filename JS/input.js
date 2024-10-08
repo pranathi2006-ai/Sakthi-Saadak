@@ -39,7 +39,7 @@ function updateSubSelect(){
         'Kettle': ['0-10 Mins', '10-20 Mins', '20-30 Mins', '30-45 Mins', '45-60 Mins', 'More than 1 HR'],
         'Fans': ['Less than 2 HRS', '2-4 HRS', '4-6 HRS', '6-8 HRS', '8-10 HRS', '10-12 HRS', 'More than 12 HRS', 'All Day'],
         'Television': ['Less than 1 HR', '1-2 HRS', '2-3 HRS', '3-4 HRS', '4-5 HRS', '5-6 HRS', '6-8 HRS', '8-10 HRS', 'More than 10 HRS'],
-        'Vacuum ': ['0-15 Mins', '15-30 Mins', '30-45 Mins', '45-60 Mins', '60-90 Mins', '90-120 Mins', 'More than 2 HRS'],
+        'Vacuum': ['0-15 Mins', '15-30 Mins', '30-45 Mins', '45-60 Mins', '60-90 Mins', '90-120 Mins', 'More than 2 HRS'],
         'Blender': ['0-10 Mins', '10-20 Mins', '20-30 Mins', '30-40 Mins', '40-50 Mins', '50-60 Mins', 'More than 1 HR'],
         'Iron': ['0-15 Mins', '15-30 Mins', '30-45 Mins', '45-60 Mins', '60-90 Mins', '90-120 Mins', 'More than 2 HRS'],
         'Light': ['Less than 2 HRS', '2-4 HRS', '4-6 HRS', '6-8 HRS', '8-10 HRS', '10-12 HRS', 'More than 12 HRS'],
@@ -71,10 +71,10 @@ function updateSubSelect(){
         timeSelect.disabled = true;
     }
 
-    let selectedTime, selectedRating, selectedFreq;
+    let selectedCompany, selectedTime, selectedRating, selectedFreq;
 
     compSelect.onchange = function() {
-        const selectedCompany = compSelect.value;
+        selectedCompany = compSelect.value;
         if (selectedAppliance && selectedCompany) {
             rateSelect.disabled = false;
 
@@ -107,7 +107,18 @@ function updateSubSelect(){
     }
 
     getSuggestions(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating);
-} 
+
+    const button = document.getElementById('Input'); 
+        if (button) {
+            button.addEventListener('click', () => {
+                displayInputValues(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating);
+            });
+        } else {
+            console.error('Element not found');
+        }
+    } 
+
+
 
 function getUniqueRatings(appliance, company) {
     const applianceRating = {
@@ -191,7 +202,7 @@ function getUniqueRatings(appliance, company) {
             'TCL': ['70W', '100W', '130W'],
             'Sharp': ['80W', '120W', '140W'],
         },
-        'Vaccuum' : {
+        'Vacuum' : {
             'Dyson': ['700W', '800W', '1200W'],
             'Eureka Forbes': ['800W', '1000W', '1200W'],
             'Philips': ['900W', '1000W', '1200W'],
@@ -279,8 +290,10 @@ function convertTimeToFloat(timeString) {
     return timeMapping[timeString] || 0; 
 }
 
+
+
 function badSuggestion(appliance){
-    
+
 }
 
 function goodSuggestion(appliance){
@@ -360,7 +373,7 @@ function getSuggestions(appliance, company, time, freq, rating){
         }  
     }
 
-    if(appliance === 'Vaccuum'){
+    if(appliance === 'Vacuum'){
         if(rating * time > 1000*0.5){
             badSuggestion(appliance);
         } else {
@@ -401,3 +414,22 @@ function getSuggestions(appliance, company, time, freq, rating){
     }
 
 }
+
+function displayInputValues(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating) {
+
+    const inputValuesBody = document.getElementById('inputValuesBody');
+    const inputHeader = document.getElementById('total-power');
+
+    const newRow = document.createElement('tr');
+
+    newRow.innerHTML = 
+        `<td>${selectedAppliance}</td>
+        <td>${selectedRating*selectedTime}</td>
+        <td>${selectedFreq}</td>`;
+
+    inputValuesBody.appendChild(newRow);
+
+    inputHeader.textContent = `${selectedRating*selectedTime}W`;
+}
+
+

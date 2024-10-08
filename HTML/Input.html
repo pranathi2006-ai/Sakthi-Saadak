@@ -18,7 +18,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">   
-<script src="../JS/input.js"></script>
 </head>
 <body>
     <h1 id="main_heading"><img class ="logo" src="../Images/logo png.png" alt="">SAKTHI SAADHAK</h1>
@@ -49,10 +48,10 @@
 
     <h2>Input your Energy Usage</h2>
 
-    <div class="sel">
+    <div class="sel" id="sel">
         <div class="app">
             <label for="Appliance">Appliance</label>
-            <select name="Appliance" id="Appliance" onchange="updateSubSelect()">
+            <select name="Appliance" id="Appliance" required onchange="updateSubSelect()">
                 <option value="" disabled selected>Select an Appliance</option>
                 <option value="Refrigerator">Refrigerator</option>
                 <option value="Microwave">Microwave</option>
@@ -73,33 +72,33 @@
     
         <div class="Company">
             <label for="Company">Company</label>
-            <select id="Company" name="Company" disabled>
+            <select id="Company" name="Company" disabled required>
                 <option value="" disabled selected>Select a company</option>
             </select>
         </div>
 
         <div class="Time">
             <label for="Time">Time</label>
-            <select name="Time" id="Time" disabled>
+            <select name="Time" id="Time" disabled required>
                 <option value="" disabled selected>Amount of Time Used</option>    
             </select>
         </div>
 
         <div class="Freq">
             <label for="Freq">Frequency</label>
-            <select name="Freq" id="Freq">
+            <select name="Freq" id="Freq" required>
                 <option value="" disabled selected>Usage Frequency</option>
-                <option value="1">Once a week</option>
-                <option value="2">Twice a week</option>
-                <option value="3-4">3-4 times a week</option>
-                <option value="5-6">More than 4 times a week</option>
-                <option value="7">Everyday</option>
+                <option value="Once a wee">Once a week</option>
+                <option value="Twice a week">Twice a week</option>
+                <option value="3-4 times a week">3-4 times a week</option>
+                <option value="More than 4 times a week">More than 4 times a week</option>
+                <option value="Everyday">Everyday</option>
             </select>
         </div>
 
         <div class="Rating">
             <label for="Rating">Rating</label>
-            <select name="Rating" id="Rating" disabled>
+            <select name="Rating" id="Rating" disabled required>
                 <option value="" disabled selected>Select the Power Rating</option>    
             </select>
         </div>
@@ -136,48 +135,52 @@
                 });
             });
         });
+
+        const select = document.getElementById('sel');
+        const select1 = document.getElementById('Appliance');
+        const select2 = document.getElementById('Company');
+        const select3 = document.getElementById('Time');
+        const select4 = document.getElementById('Freq');
+        const select5 = document.getElementById('Rating');
+
+        sel.addEventListener('submit', function(event) {
+            if (select1.value === '' || select2.value === '' || select3.value === '' || select4.value === '' || select5.value === '') {
+                select1.required = true;
+                select2.required = true;
+                select3.required = true;
+                select4.required = true;
+                select5.required = true;
+                
+                event.preventDefault();
+
+                alert('Please fill out all required fields!');
+            }
+        });
+
+
         </script>
-        <div class="output-section">
-            <h2>Output </h2>
-            
+    <div class="output-section">
+        <h2>Output </h2>
             <div class="total-consumption">
                 <h3>Total Power Consumption</h3>
-                <p id="total-power">0 kWh</p>
+                <p id="total-power"></p>
             </div>
         
             <h2>Appliance Specific Details</h2>
-<table class="appliance-table">
-    <thead>
-        <tr>
-            <th>Appliance Name</th>
-            <th>Power Consumption (W)</th>
-            <th>Usage Pattern</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Refrigerator</td>
-            <td>150</td>
-            <td>24 hours a day</td>
-        </tr>
-        <tr>
-            <td>Washing Machine</td>
-            <td>500</td>
-            <td>2 times a week</td>
-        </tr>
-        <tr>
-            <td>Television</td>
-            <td>100</td>
-            <td>3 hours a day</td>
-        </tr>
+        <table class="appliance-table">
+            <thead>
+                <tr>
+                    <th>Appliance Name</th>
+                    <th>Average Power Consumption (W)</th>
+                    <th>Usage Pattern</th>
+                </tr>
+            </thead>
+            <tbody id="inputValuesBody">
+               
+            </tbody>
+        </table>
         
-    </tbody>
-</table>
-
-</body>
-</html>
-        
-            <div class="suggestions">
+        <div class="suggestions">
                 <h3>Suggestions</h3>
                 <ul id="suggestion-list">
                     <li>Optimize usage during off-peak hours.</li>
@@ -187,37 +190,7 @@
             </div>
         </div>
         
-        <script>
-            document.getElementById('Input').addEventListener('click', function() {
-                const appliance = document.getElementById('Appliance').value;
-                const frequency = document.getElementById('Freq').value;
-                
-                // Dummy calculation for power consumption
-                let powerRating = 0; 
-                if (appliance === "Refrigerator") powerRating = 150; 
-                else if (appliance === "Washing Machine") powerRating = 500;
-                
-        
-                const usageHours = 1; 
-                const totalConsumption = (powerRating * usageHours * frequency) / 1000; 
-                
-                document.getElementById('total-power').innerText = totalConsumption.toFixed(2) + ' kWh';
-                
-                
-                const detailsContainer = document.getElementById('details-container');
-                detailsContainer.innerHTML = `<p>Appliance: ${appliance}</p>
-                                              <p>Power Rating: ${powerRating} Watts</p>
-                                              <p>Usage Frequency: ${frequency}</p>`;
-        
-            
-            });
-        </script>
-        
-        
-
-
-
-
+        <script src="../JS/input.js"></script>
 
 </body>
 </html>
