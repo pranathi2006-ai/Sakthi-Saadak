@@ -34,11 +34,11 @@
     </nav>
 
     <h2>Input your Energy Usage</h2>
-    
+
     <div class="sel">
         <div class="app">
             <label for="Appliance">Appliance</label>
-            <select name="Appliance" id="Appliance">
+            <select name="Appliance" id="Appliance" onchange="updateSubSelect()">
                 <option value="" disabled selected>Select an Appliance</option>
                 <option value="Refrigerator">Refrigerator</option>
                 <option value="Microwave">Microwave</option>
@@ -58,8 +58,8 @@
         </div>
     
         <div class="Company">
-            <label for="Companies">Company</label>
-            <select id="Companies" name="Companies" disabled>
+            <label for="Company">Company</label>
+            <select id="Company" name="Company" disabled>
                 <option value="" disabled selected>Select a company</option>
             </select>
         </div>
@@ -82,9 +82,16 @@
                 <option value="7">Everyday</option>
             </select>
         </div>
+
+        <div class="Rating">
+            <label for="Rating">Rating</label>
+            <select name="Rating" id="Rating" disabled>
+                <option value="" disabled selected>Select the Power Rating</option>    
+            </select>
+        </div>
     </div>
     
-    
+    <script src="../JS/input.js"></script>
 
 </body>
 </html>

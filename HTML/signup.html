@@ -6,10 +6,6 @@
     <title>Sakthi Saadak - Signup</title>
     <link rel="stylesheet" href="../CSS/signup.css">
     <link rel="icon" type="image/png" href="../Images/fevicon.png">
-<<<<<<< HEAD
-    <script src="../JS/signup.js"></script>
-=======
->>>>>>> e9f1aa3df4d6e996963642e02aec0e5157755ff1
 </head>
 <body>
     <div class="container">
@@ -39,5 +35,58 @@
             <p>Already have an account? <a href="login.html">Login</a></p>
         </div>
     </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+        import { getFirestore, setDoc, doc, Timestamp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCnKdlypGWNiM9bFuXTLyQY6y8ogxVl-Fc",
+            authDomain: "sakthi-saadhak.firebaseapp.com",
+            projectId: "sakthi-saadhak",
+            storageBucket: "sakthi-saadhak.appspot.com",
+            messagingSenderId: "1062042370266",
+            appId: "1:1062042370266:web:e61755acdf58f2cd4f25e3",
+            measurementId: "G-TTLS5K3L8K",
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        document.getElementById('signup-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirm = document.getElementById('confirm-password').value;
+
+            if (password !== confirm) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+                const userId = userCredential.user.uid;
+
+                await setDoc(doc(db, 'users', userId), {
+                    username: username,
+                    email: email,
+                    createdAt: Timestamp.now()
+                });
+
+                alert('Signup successful! User data stored.');
+                document.getElementById('signup-form').reset();
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+    </script>
+
 </body>
 </html>
