@@ -83,6 +83,8 @@
 
                 alert('Signup successful! User data stored.');
                 document.getElementById('signup-form').reset();
+
+                window.location.href = 'home.html'; 
             } catch (error) {
                 alert('Error: ' + error.message);
             }
