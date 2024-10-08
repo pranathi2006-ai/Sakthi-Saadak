@@ -19,26 +19,11 @@ body{
     opacity: 0.9;
 }
 
-
-
-#main_heading{
-    text-align: center;
-    font-size: 60px;
-
-    font-family: "Yanone Kaffeesatz", sans-serif;
-
-   background-color: #011c18;
-    color: beige;
-    padding: 10px;
-    background-attachment: fixed;
-}
-
 nav{
     background-color:  #004037;
     padding: 20px;
     position: sticky;
     top: 0;
-    
 }
 nav a{
    
@@ -80,7 +65,7 @@ div>h1{
     line-height: 1.1;
     
     font-family: 'Bebas Neue', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 110px;
+    font-size: 100px;
     color: beige;
 }
 .highlight {
@@ -120,9 +105,7 @@ img.logo{
     float: left;
     width: 80px;
     border-radius: 10%;
-    
 }
-
 .styled-button{
     background-color: beige;
     border-radius: 10px;
@@ -156,12 +139,18 @@ img.logo{
 }
 #main_heading {
     text-align: center;
-    font-size: 60px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+    font-family: "Yanone Kaffeesatz", sans-serif;
     background-color: #011c18;
     color: beige;
+    font-weight: 350;
     padding: 10px;
+        font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
+  .logo
 }
+
 
 /* About Section Styles */
 .about-section {
