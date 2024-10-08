@@ -136,7 +136,7 @@ h2 {
     border-radius: 15px;
 }
 
-#Appliance, #Companies, #Time, #Freq, #Rating {
+#Appliance, #Company, #Time, #Freq, #Rating {
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #004037;
@@ -145,7 +145,7 @@ h2 {
     font-size: 18px;
 }
 
-#Appliance:hover, #Companies:hover, #Time:hover, #Freq:hover {
+#Appliance:hover, #Company:hover, #Time:hover, #Freq:hover, #Rating:hover {
     background-color: #d9e1cc;
     cursor: pointer;
 }
