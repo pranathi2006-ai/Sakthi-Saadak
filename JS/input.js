@@ -115,6 +115,10 @@ function updateSubSelect(){
 
                 displayInputValues(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating);
                 getSuggestions(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating);
+
+                const target = document.getElementById('Output');
+
+                target.scrollIntoView({ behavior: 'smooth' });
             });
         } else {
             console.error('Element not found');

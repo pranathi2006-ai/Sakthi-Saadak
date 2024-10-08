@@ -41,7 +41,7 @@
         <img class="Ocean" src="../Images/final logo left.png" alt="">
     </div>
     <div class="button-container">
-    <button class="styled-button"> Sign-up</button>
+    <button class="styled-button" id="SignUp"> Sign Up</button>
     <button class="styled-button">Know More</button>
 </div>
     
@@ -85,7 +85,13 @@
      <p>&copy; 2024 Sakthi Saadak. All rights reserved.</p>
      </div>
 </div>
-</body>
-</html>
+
+<script>
+    const button = document.getElementById('SignUp');
+
+    button.addEventListener('click', () => {
+    window.location.href = 'signup.html';
+});
+</script>
 </body>
 </html>
