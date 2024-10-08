@@ -24,28 +24,62 @@
     <h1 id="main_heading"><img class ="logo" src="../Images/logo png.png" alt="">SAKTHI SAADHAK</h1>
     <nav>
         <div class="Nav_bar">
-            <a href="#" id="parent_a_1" class="parent_a">Energy Usage
-                <div id="Menubox_1" class="Menubox">
-                    <a href="#" class="mb_a">Energy Usage</a>
-                    <a href="#" class="mb_a">Carbon Footprint</a>
-                </div>
-            </a>   
-            <a href="#" id="parent_a_2" class="parent_a">View
-                <div id="Menubox_2" class="Menubox">
-                    <a href="#" class="mb_a">Material Comparision</a>
-                    <a href="#" class="mb_a">Reports</a>
-                    <a href="#" class="mb_a">Articles</a>
-                </div>   
-            </a>
-            <a href="#" id="parent_a_3" class="parent_a">Renewable Energy
-                <div id="Menubox_3" class="Menubox">
-                    <a href="#" class="mb_a">Renewable Energy Potential</a>
-                    <a href="#" class="mb_a">Renewable Energy Data</a>
-                </div>   
-            </a>
-            <a href="#" id="parent_a_4" class="parent_a">Profile</a>
+            <div class="parent_a" id="parent_a_1">Energy Usage</div>
+            <div id="Menubox_1" class="Menubox">
+                <a href="#" class="mb_a">Energy Usage</a>
+                <a href="#" class="mb_a">Carbon Footprint</a>
+            </div>
+            
+            <div class="parent_a" id="parent_a_2">View</div>
+            <div id="Menubox_2" class="Menubox">
+                <a href="#" class="mb_a">Material Comparision</a>
+                <a href="#" class="mb_a">Reports</a>
+                <a href="#" class="mb_a">Articles</a>
+            </div>
+    
+            <div class="parent_a" id="parent_a_3">Renewable Energy</div>
+            <div id="Menubox_3" class="Menubox">
+                <a href="#" class="mb_a">Renewable Energy Potential</a>
+                <a href="#" class="mb_a">Renewable Energy Data</a>
+            </div>
+    
+            <div class="parent_a" id="parent_a_4">Profile</div>
         </div>
     </nav>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const parentLinks = document.querySelectorAll(".parent_a");
+        
+            parentLinks.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault(); 
+    
+                    const allDropdowns = document.querySelectorAll(".Menubox");
+                    allDropdowns.forEach(dropdown => {
+                        if (dropdown !== this.nextElementSibling) {
+                            dropdown.style.display = "none";
+                        }
+                    });
+        
+          
+                    const dropdown = this.nextElementSibling;
+                    dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+                });
+            });
+
+            document.addEventListener("click", function(event) {
+                parentLinks.forEach(link => {
+                    const dropdown = link.nextElementSibling;
+                    if (dropdown.style.display === "block" && !link.contains(event.target) && !dropdown.contains(event.target)) {
+                        dropdown.style.display = "none";
+                    }
+                });
+            });
+        });
+        </script>
+        
+        
 
     
     

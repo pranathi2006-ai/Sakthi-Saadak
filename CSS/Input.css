@@ -13,6 +13,11 @@ body {
 #main_heading {
     text-align: center;
     font-size: 40px;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+
     background-color: #011c18;
     color: beige;
     padding: 20px;
@@ -114,7 +119,8 @@ body {
 h2 {
     padding: 30px;
     text-align: center;
-    font-size: 26px;
+    font-family: 'Roboto';
+    font-size: 45px;
     color: #004037;
 }
 
@@ -150,24 +156,185 @@ h2 {
     cursor: pointer;
 }
 
-/* Added hover effect for the app dialogue box */
+
+
 .app:hover .Menubox {
     display: block;
-    position: relative; /* Changed position */
-    top: 100%; /* Positions the dialogue box directly below */
+    position: relative; 
+    top: 100%; 
 }
 #Input {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
+    font-family: 'Roboto', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
     text-decoration: none;
-    padding: 30px;
+    padding: 20px;
     border-radius: 20px;
     border: none;
     box-shadow: 2px 2px 5px black;
     margin: 30px auto 40px auto; 
     background-color: rgb(116, 196, 116);
-    display: block;  /* Makes the button a block element */
+    display: block;  
     margin: 30px auto 40px auto;
+}
+
+#Input:hover {
+    background-color: #04a364;
+    cursor: pointer;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f9f3e8;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #004037;
+}
+
+#main_heading {
+    text-align: center;
+    font-size: 40px;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-weight: 200;
+    background-color: #011c18;
+    color: beige;
+    padding: 20px;
+    background-attachment: fixed;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-bottom: 4px solid #f5eddf;
+}
+
+.logo {
+    vertical-align: middle;
+    border-radius: 50%;
+    width: 60px;
+}
+
+.Nav_bar {
+    background-color: #f9f3e8;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-start; /* Changed alignment to left */
+}
+
+.parent_a {
+    text-decoration: none;
+    color: #004037;
+    font-size: 20px;
+    padding: 15px 25px;
+    margin: 0 20px;
+    background-color: #f5eddf;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.parent_a:hover {
+    background-color: #d9e1cc;
+    color: #3e813e;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.Menubox {
+    display: none;
+    position: absolute;
+    transform: translateX(-50%);
+    background-color: #fffdf9;
+    box-shadow: 2px 2px 5px rgba(45, 74, 53, 0.651);
+    border-radius: 20px;
+    padding: 20px;
+    vertical-align: middle;
+    margin-bottom: 20px;
+    margin-top: 0;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 20px;
+    font-size: 20px;
+    z-index: 1;
+    top: 100%;
+    left: 20%;
+}
+
+.Menubox a {
+    color: #004037;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.Menubox a:hover {
+    background-color: #3e813e;
+}
+
+#parent_a_1:hover ~ #Menubox_1, 
+#parent_a_2:hover ~ #Menubox_2, 
+#parent_a_3:hover ~ #Menubox_3 {
+    display: block;
+}
+
+h2 {
+    padding: 20px;
+    text-align: center;
+    font-family: 'Roboto', Helvetica, sans-serif;
+    font-size: 35px;
+    color: #004037;
+}
+
+.sel, .container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    flex-wrap: wrap;
+}
+
+.box {
+    background-color: #fffdf9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+}
+
+#overall_consumption, #appliance_consumption {
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid #004037;
+    background-color: #f5eddf;
+    color: #004037;
+}
+
+#overall_consumption:hover, #appliance_consumption:hover {
+    background-color: #d9e1cc;
+    cursor: pointer;
+}
+
+#Input {
+    font-family: 'Roboto', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 2px 2px 5px black;
+    margin: 30px auto 40px auto; 
+    background-color: rgb(116, 196, 116);
+    display: block;
 }
 
 #Input:hover {
