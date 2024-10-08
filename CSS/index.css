@@ -20,8 +20,6 @@ body{
     opacity: 0.9;
 }
 
-
-
 #main_heading{
     text-align: center;
     font-size: 60px;
@@ -166,7 +164,6 @@ img.logo{
 
 /* About Section Styles */
 .about-section {
-<<<<<<< Updated upstream
     background-color: #ffffff; 
     padding: 20px; 
     border-radius: 8px; 
@@ -177,22 +174,6 @@ img.logo{
 
 .about-section h2 {
     color: #007bff; 
-=======
-    top:-100px;
-    margin-top: auto;
-    background-color: beige; /* Beige background */
-    padding: 0px; /* Padding for the section */
-    margin: 0px auto; /* Center with margin */
-    font-size: 18px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    line-height: 1.5;
-    color: #333;
-    text-align: left; /* Align text to the left */
-}
-
-.about-section h2 {
-    color:#0eff85; 
->>>>>>> Stashed changes
 }
 
 
