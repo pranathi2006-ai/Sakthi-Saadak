@@ -180,8 +180,7 @@ h2 {
     background-color: #fffdf9;
     cursor: pointer;
 }
-
-/* #Input {
+ #Input {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     margin-left: 645px;
@@ -264,3 +263,22 @@ h2 {
     background-color: white;
     color: black;
 }
+.nav-item {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start (left) */
+    margin: 20px; /* Add some space between items */
+}
+
+.nav-icon {
+    width: 100px; /* Adjust the icon size */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: -10px; /* Space between icon and heading */
+}
+.nav-logo{
+    width: 175px; /* Adjust the icon size */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: -35px;
+    img
+}
+

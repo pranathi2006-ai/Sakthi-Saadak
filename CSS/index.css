@@ -9,7 +9,8 @@ body{
 }
 
 .image-container {
-    position: relative; 
+    position: relative;
+    width: 65px; 
 }
 
 .light-image {
@@ -148,10 +149,6 @@ img.logo{
     max-width: 20%;
 }
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 .item{
     border-radius: 5px;
@@ -167,7 +164,6 @@ img.logo{
 
 /* About Section Styles */
 .about-section {
-<<<<<<< Updated upstream
     background-color: #ffffff; 
     padding: 20px; 
     border-radius: 8px; 
@@ -178,7 +174,6 @@ img.logo{
 
 .about-section h2 {
     color: #007bff; 
-=======
     top:-100px;
     margin-top: auto;
     background-color: beige; /* Beige background */
@@ -192,8 +187,7 @@ img.logo{
 }
 
 .about-section h2 {
-    color:#0eff85; 
->>>>>>> Stashed changes
+color:#0eff85; 
 }
 
 
