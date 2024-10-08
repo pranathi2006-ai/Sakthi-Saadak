@@ -104,37 +104,6 @@ h2 {
     color: #004037;
 }
 
-.sel {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-.app, .Company, .Time, .Freq, .Rating {
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    margin: 10px;
-    gap: 15px;
-    background-color: #fffdf9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-}
-
-#Appliance, #Companies, #Time, #Freq, #Rating {
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #004037;
-    background-color: #f5eddf;
-    color: #004037;
-    font-size: 18px;
-}
-
-#Appliance:hover, #Companies:hover, #Time:hover, #Freq:hover {
-    background-color: #d9e1cc;
-    cursor: pointer;
-}
 
 .Monitor, .Track, .Save {
     display: flex;
