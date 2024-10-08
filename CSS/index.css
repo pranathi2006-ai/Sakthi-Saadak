@@ -148,29 +148,22 @@ img.logo{
     max-width: 20%;
 }
 
-.industries{
-    display: grid;
-    grid-template-columns: repeat(3, 200px);
-    gap: 10px;
-    max-width: 100%;                                                                                  +
-    justify-content::end;
-}
 
 .item{
     border-radius: 5px;
 }
 
 .about-section {
-    background-color: #ffffff; /* White background for the section */
-    padding: 20px; /* Padding around section */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    margin: 20px auto; /* Centering with margin */
-    max-width: 800px; /* Maximum width */
+    background-color: #ffffff; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    margin: 20px auto; 
+    max-width: 800px; 
 }
 
 .about-section h2 {
-    color: #007bff; /* Heading color */
+    color: #007bff; 
 }
 
 .footer {
@@ -193,43 +186,43 @@ img.logo{
 }
 
 .footer-links {
-    text-align: center; /* Center-aligns all content */
-    padding: 20px; /* Adds some padding */
-    background-color: #333; /* Light background color */
+    text-align: center; 
+    padding: 20px; 
+    background-color: #333; 
 }
 
 #footer-title {
-    margin: 0; /* Removes default margin */
+    margin: 0; 
 }
 
 .social-links {
-    display:flex; /* Use flexbox for layout */
-    justify-content: center; /* Center the links */
-    gap: 15px; /* Space between links */
-    margin: 10px 0; /* Space above and below */
+    display:flex; 
+    justify-content: center; 
+    gap: 15px; 
+    margin: 10px 0; 
 }
 
 .footer-paragraph {
     margin: 20px 0;
-    top :-25px; /* Space above and below the paragraph */
+    top :-25px; 
 }
 
 .footer-options {
-    margin-top: 1px; /* Adds space before options */
+    margin-top: 1px; 
 }
 
 .footer-options ul {
     font-family:sans-serif;
-    list-style: none; /* Removes bullet points */
-    padding: 0; /* Removes default padding */
-    display: flex; /* Use flexbox for layout */
-    justify-content: center; /* Center the list items */
-    gap: 15px; /* Space between items */
+    list-style: none; 
+    padding: 0; 
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
 }
 
 .footer-options a {
-    text-decoration: none; /* Removes underline from links */
-    color: beige; /* Link color */
+    text-decoration: none; 
+    color: beige;
 }
 .n1{
     background-color: #333;
