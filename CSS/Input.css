@@ -119,6 +119,7 @@ h2 {
     display: flex;
     justify-content: center;
     padding: 20px;
+    
 }
 
 .app, .Company, .Time, .Freq, .Rating {
@@ -334,16 +335,16 @@ h2 {
     cursor: pointer;
 }
 .output-section {
-   
+    margin: 20px;
     padding: 20px;
-    background-color:#004037;
- 
+    background-color: #f9f9f9;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .output-section h2 {
     text-align: center;
-    color:beige;
+    color: #004037;
 }
 
 .output-section div {
@@ -352,7 +353,7 @@ h2 {
 
 .total-consumption, .appliance-details, .suggestions {
     padding: 15px;
-    background-color: beige;
+    background-color: white;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
