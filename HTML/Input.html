@@ -137,6 +137,82 @@
             });
         });
         </script>
+        <div class="output-section">
+            <h2>Output </h2>
+            
+            <div class="total-consumption">
+                <h3>Total Power Consumption</h3>
+                <p id="total-power">0 kWh</p>
+            </div>
+        
+            <h2>Appliance Specific Details</h2>
+<table class="appliance-table">
+    <thead>
+        <tr>
+            <th>Appliance Name</th>
+            <th>Power Consumption (W)</th>
+            <th>Usage Pattern</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Refrigerator</td>
+            <td>150</td>
+            <td>24 hours a day</td>
+        </tr>
+        <tr>
+            <td>Washing Machine</td>
+            <td>500</td>
+            <td>2 times a week</td>
+        </tr>
+        <tr>
+            <td>Television</td>
+            <td>100</td>
+            <td>3 hours a day</td>
+        </tr>
+        
+    </tbody>
+</table>
+
+</body>
+</html>
+        
+            <div class="suggestions">
+                <h3>Suggestions</h3>
+                <ul id="suggestion-list">
+                    <li>Optimize usage during off-peak hours.</li>
+                    <li>Consider switching to energy-efficient appliances.</li>
+                    <li>Monitor your energy usage regularly.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <script>
+            document.getElementById('Input').addEventListener('click', function() {
+                const appliance = document.getElementById('Appliance').value;
+                const frequency = document.getElementById('Freq').value;
+                
+                // Dummy calculation for power consumption
+                let powerRating = 0; 
+                if (appliance === "Refrigerator") powerRating = 150; 
+                else if (appliance === "Washing Machine") powerRating = 500;
+                
+        
+                const usageHours = 1; 
+                const totalConsumption = (powerRating * usageHours * frequency) / 1000; 
+                
+                document.getElementById('total-power').innerText = totalConsumption.toFixed(2) + ' kWh';
+                
+                
+                const detailsContainer = document.getElementById('details-container');
+                detailsContainer.innerHTML = `<p>Appliance: ${appliance}</p>
+                                              <p>Power Rating: ${powerRating} Watts</p>
+                                              <p>Usage Frequency: ${frequency}</p>`;
+        
+            
+            });
+        </script>
+        
         
 
 
