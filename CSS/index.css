@@ -9,7 +9,8 @@ body{
 }
 
 .image-container {
-    position: relative; 
+    position: relative;
+    width: 65px; 
 }
 
 .light-image {
@@ -163,6 +164,18 @@ img.logo{
 
 /* About Section Styles */
 .about-section {
+<<<<<<< Updated upstream
+    background-color: #ffffff; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    margin: 20px auto; 
+    max-width: 800px; 
+}
+
+.about-section h2 {
+    color: #007bff; 
+=======
     top:-100px;
     margin-top: auto;
     background-color: beige; /* Beige background */
@@ -177,6 +190,7 @@ img.logo{
 
 .about-section h2 {
     color:#0eff85; 
+>>>>>>> Stashed changes
 }
 
 
