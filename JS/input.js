@@ -109,6 +109,10 @@ function updateSubSelect(){
     const button = document.getElementById('Input'); 
         if (button) {
             button.addEventListener('click', () => {
+                if (!validateForm()) {
+                    return;
+                }
+
                 displayInputValues(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating);
                 getSuggestions(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating);
             });
@@ -116,6 +120,42 @@ function updateSubSelect(){
             console.error('Element not found');
         }
 } 
+
+function validateForm() {
+    const appSelect = document.getElementById('Appliance');
+    const compSelect = document.getElementById('Company');
+    const timeSelect = document.getElementById('Time');
+    const freqSelect = document.getElementById('Freq');
+    const rateSelect = document.getElementById('Rating');
+
+    if (!appSelect.value) {
+        alert('Please select an appliance.');
+        appSelect.focus();
+        return false;
+    }
+    if (!compSelect.value) {
+        alert('Please select a company.');
+        compSelect.focus();
+        return false;
+    }
+    if (!timeSelect.value) {
+        alert('Please select the amount of time used.');
+        timeSelect.focus();
+        return false;
+    }
+    if (!freqSelect.value) {
+        alert('Please select the frequency.');
+        freqSelect.focus();
+        return false;
+    }
+    if (!rateSelect.value) {
+        alert('Please select the power rating.');
+        rateSelect.focus();
+        return false;
+    }
+    
+    return true; 
+}
 
 function getUniqueRatings(appliance, company) {
     const applianceRating = {
@@ -171,7 +211,7 @@ function getUniqueRatings(appliance, company) {
             'LG': ['1400W', '1800W', '2000W'],
             'Siemens': ['1300W', '1600W', '1800W'],
         },
-        'Electric Kettle' : {
+        'Kettle' : {
             'Philips': ['1000W', '1500W', '1800W'],
             'Prestige': ['1200W', '1500W', '1800W'],
             'Bajaj': ['1200W', '1500W', '1800W'],
@@ -289,7 +329,7 @@ function convertTimeToFloat(timeString) {
 
 function badSuggestion(appliance, threshold){
     const inputThreshold = document.getElementById('Threshold');
-    inputThreshold.textContent = "You are using the appliances more than average people." 
+    inputThreshold.textContent = "You are using the appliances more than average people. Follow these steps:" 
 
     if(appliance === 'Refrigerator'){
         const inputSuggestions = document.getElementById('suggestion-list');
@@ -543,6 +583,9 @@ function badSuggestion(appliance, threshold){
 
 
 function goodSuggestion(appliance){
+    const inputThreshold = document.getElementById('Threshold');
+    inputThreshold.textContent = "Very Good! You're using energy conservatively. Here are some tips anyways:";
+
     const inputSuggestions = document.getElementById('suggestion-list');
         inputSuggestions.innerHTML = '';
 
@@ -590,7 +633,25 @@ function getSuggestions(appliance, company, time, freq, rating){
 
 function displayInputValues(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating) {
 
+    const thresholds = {
+        'Refrigerator': 150 * 24,
+        'Microwave': 1000 * 0.5,
+        'Washing Machine': 700 * 0.5,
+        'Electric Stove': 1500 * 1,
+        'Water Heater': 2000 * 0.5,
+        'Dishwasher': 1500 * 1,
+        'Kettle': 1500 * 0.5,
+        'Fans': 70 * 8,
+        'Television': 120 * 4,
+        'Vacuum': 1000 * 0.5,
+        'Blender': 500 * 0.2,
+        'Iron': 1500 * 0.5,
+        'Light': 20 * 8,
+        'Computer': 250 * 4
+    };
+
     const inputValuesBody = document.getElementById('inputValuesBody');
+    inputValuesBody.innerHTML = '';
     const inputHeader = document.getElementById('total-power');
 
     const newRow = document.createElement('tr');
@@ -598,6 +659,7 @@ function displayInputValues(selectedAppliance, selectedCompany, selectedTime, se
     newRow.innerHTML = 
         `<td>${selectedAppliance}</td>
         <td>${selectedRating*selectedTime}</td>
+        <td>${thresholds[selectedAppliance]}</td>
         <td>${selectedFreq}</td>`;
 
     inputValuesBody.appendChild(newRow);
