@@ -1,6 +1,5 @@
-
-#login-body {
-    background-color:#004037;
+#login-login-body {
+    background-color: #004037;
     font-family: sans-serif;
     
     display: flex;
@@ -10,7 +9,7 @@
     margin: 0;
 }
 
-.container {
+.login-container {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -18,18 +17,18 @@
     width: 350px;
 }
 
-h2 {
+.login-h2 {
     text-align: center;
     
     margin-bottom: 20px;
 }
-h3{
-    text-align:center;
+
+.login-h3 {
+    text-align: center;
     margin-bottom: 20px;
 }
 
-
-input {
+.login-input {
     width: 100%;
     padding: 15px;
     margin: 5px 0 20px 0;
@@ -38,7 +37,7 @@ input {
     box-sizing: border-box;
 }
 
-button {
+.login-button {
     background-color:  #004037;
     color: white;
     padding: 15px 20px;
@@ -49,20 +48,20 @@ button {
     border-radius: 4px;
 }
 
-button:hover {
+.login-button:hover {
     opacity: 1;
 }
 
-.info {
+.login-info {
     text-align: center;
     margin-top: 15px;
 }
 
-a {
+.login-link {
     color: #004037;
     text-decoration: none;
 }
 
-a:hover {
+.login-link:hover {
     text-decoration: underline;
 }
