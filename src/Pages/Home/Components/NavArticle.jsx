@@ -12,7 +12,7 @@ function NavArticle(){
     const navigate = useNavigate();
 
     const handleCarbon = () => {
-        navigate('/Carbon'); 
+        navigate("/Carbon"); 
     };
 
     return (
@@ -24,8 +24,8 @@ function NavArticle(){
                     <p>Know about your Energy Usage</p>
                 </div>
     
-                <div id="Footprint" className="nav-item">
-                    <img src={Image2} alt="Carbon Footprint Icon" className="nav-icon" onClick={handleCarbon}/>
+                <div id="Footprint" className="nav-item" onClick={handleCarbon}>
+                    <img src={Image2} alt="Carbon Footprint Icon" className="nav-icon" />
                     <h3>Calculate Carbon Footprint</h3>
                     <p>Know the Carbon Footprint you're leaving behind</p>
                 </div>
