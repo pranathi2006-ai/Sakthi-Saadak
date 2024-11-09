@@ -55,7 +55,7 @@ function Form(){
     };
 
     return (
-        <div className="container">        
+        <div className="signup-container">        
             <h2 style={{ fontSize: '35px', fontFamily: "'Yanone Kaffeesatz', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif", fontWeight: 400 }}>SAKTHI SAADHAK</h2>
         
             <h3 style={{ fontFamily: 'sans-serif' }}>Sign-up</h3>
@@ -76,7 +76,7 @@ function Form(){
                     <label htmlFor="confirm-password">Confirm Password:</label>
                     <input type="password" id="confirm-password" name="confirm-password" onChange={handleConfirmPassword} required />
                 </div>
-                <button type="submit">Signup</button>
+                <button type="submit" className="signup-button">Signup</button>
             </form>
             <div className="info">
                 <p>Already have an account? <a href="/Login">Login</a></p>
