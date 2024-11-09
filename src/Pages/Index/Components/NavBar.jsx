@@ -6,7 +6,7 @@ function NavBar(){
         <nav>
             <ul className="navsbar">
                     <a href="/Login">Log In</a>
-                    <a href="#">SignUp</a>
+                    <a href="/Signup">SignUp</a>
                     <a href="#">About</a>
                     <a href="#">Contact</a>
             </ul>

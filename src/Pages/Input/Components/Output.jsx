@@ -3,15 +3,15 @@ import Data from '../Data.jsx'
 function Output(){
 
     return(
-        <div className="output-section" id="Output">
+        <div className="input-output-section" id="Output">
             <h2>Output </h2>
-                <div className="total-consumption">
+                <div className="input-total-consumption">
                     <h3>Total Power Consumption</h3>
-                    <p id="total-power"></p>
+                    <p id="input-total-power"></p>
                 </div>
             
                 <h2>Appliance Specific Details</h2>
-            <table className="appliance-table">
+            <table className="input-appliance-table">
                 <thead>
                     <tr>
                         <th>Appliance Name</th>
@@ -20,15 +20,15 @@ function Output(){
                         <th>Usage Pattern</th>
                     </tr>
                 </thead>
-                <tbody id="inputValuesBody">
+                <tbody id="input-inputValuesBody">
                 
                 </tbody>
             </table>
             
-            <div className="suggestions">
+            <div className="input-suggestions">
                     <h3>Suggestions:</h3>
                         <h4 style={{ color: '#04a364', display: 'flex' }} id="Threshold"></h4>
-                    <ul id="suggestion-list">
+                    <ul id="input-suggestion-list">
                         
                     </ul>
             </div>

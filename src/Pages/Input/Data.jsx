@@ -148,6 +148,14 @@ function Data(){
         selectedRating = '';
 
         const target = document.getElementById('Output');
+
+        if (target) {
+            console.log('Output element found, scrolling...');
+            target.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            console.error('Output element not found in the DOM');
+        }
+        
         target.scrollIntoView({ behavior: 'smooth' });
     };
 
@@ -396,7 +404,7 @@ function badSuggestion(appliance, threshold){
     inputThreshold.textContent = "You are using the appliances more than average people. Follow these steps:" 
 
     if(appliance === 'Refrigerator'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -415,7 +423,7 @@ function badSuggestion(appliance, threshold){
     }
 
     if(appliance === 'Microwave'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -433,7 +441,7 @@ function badSuggestion(appliance, threshold){
     }
 
     if(appliance === 'Washing Machine'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -451,7 +459,7 @@ function badSuggestion(appliance, threshold){
     }
 
     if(appliance === 'Electric Stove'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -469,7 +477,7 @@ function badSuggestion(appliance, threshold){
     }
 
     if(appliance === 'Water Heater'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -487,7 +495,7 @@ function badSuggestion(appliance, threshold){
     }
 
     if(appliance === 'Dishwasher'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -505,7 +513,7 @@ function badSuggestion(appliance, threshold){
     }
 
     if(appliance === 'Kettle'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -523,7 +531,7 @@ function badSuggestion(appliance, threshold){
     }
 
     if(appliance === 'Fan'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -541,7 +549,7 @@ function badSuggestion(appliance, threshold){
     }
 
     if(appliance === 'Television'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -559,7 +567,7 @@ function badSuggestion(appliance, threshold){
     }
 
     if(appliance === 'Vacuum'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -576,7 +584,7 @@ function badSuggestion(appliance, threshold){
     }
 
     if(appliance === 'Blender'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -592,7 +600,7 @@ function badSuggestion(appliance, threshold){
     }
 
     if(appliance === 'Iron'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -609,7 +617,7 @@ function badSuggestion(appliance, threshold){
     }
 
     if(appliance === 'Light'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -626,7 +634,7 @@ function badSuggestion(appliance, threshold){
     }
 
     if(appliance === 'Computer'){
-        const inputSuggestions = document.getElementById('suggestion-list');
+        const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -650,7 +658,7 @@ function goodSuggestion(appliance){
     const inputThreshold = document.getElementById('Threshold');
     inputThreshold.textContent = "Very Good! You're using energy conservatively. Here are some tips anyways:";
 
-    const inputSuggestions = document.getElementById('suggestion-list');
+    const inputSuggestions = document.getElementById('input-suggestion-list');
         inputSuggestions.innerHTML = '';
 
         const suggestions = [
@@ -768,8 +776,8 @@ async function displayInputValues(token) {
             return;
         }
 
-        const inputValuesBody = document.getElementById('inputValuesBody');
-        const inputHeader = document.getElementById('total-power');
+        const inputValuesBody = document.getElementById('input-inputValuesBody');
+        const inputHeader = document.getElementById('input-total-power');
         inputValuesBody.innerHTML = '';
 
         let totalPower = 0;

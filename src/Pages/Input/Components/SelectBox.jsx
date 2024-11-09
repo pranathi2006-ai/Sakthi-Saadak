@@ -3,14 +3,10 @@ import Output from './Output.jsx'
 
 function SelectBox(){
 
-    function handleSubmit(){
-        
-    }
-
     return(
         <>
-            <h2>Input your Energy Usage</h2>
-            <div className="sel" id="sel">
+            <h2 className="input-energy-h2">Input your Energy Usage</h2>
+            <div className="input-sel" id="sel">
                 <div className="app">
                     <label htmlFor="Appliance">Appliance</label>
                     <select name="Appliance" id="Appliance" defaultValue=""required onChange={Data}>
@@ -67,7 +63,7 @@ function SelectBox(){
                 
             </div>
 
-            <button id="Input" onClick={handleSubmit}>Submit</button>
+            <button id="Input">Submit</button>
         </>
     );
 }
