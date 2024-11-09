@@ -14,7 +14,7 @@
     margin: 0;
 }
 
-.container {
+.signup-container {
     background-color: #fff;
 .signup-container {
     background-color: #ffff;
@@ -25,13 +25,13 @@
     color: #000;
 }
 
-.container h2 {
+.signup-container h2 {
     text-align: center;
     margin-bottom: 20px;
     color: black;
 }
 
-.container h3{
+.signup-container h3{
     text-align: center;
     margin-bottom: 10px;
     font-size: 20px;
@@ -47,7 +47,7 @@ input {
     box-sizing: border-box;
 }
 
-button {
+.signup-button {
     background-color:  #004037;
     color: white;
     padding: 15px 20px;
@@ -58,7 +58,7 @@ button {
     border-radius: 4px;
 }
 
-button:hover {
+.signup-button:hover {
     opacity: 1;
 }
 

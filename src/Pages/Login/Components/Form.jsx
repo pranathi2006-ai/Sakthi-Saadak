@@ -2,21 +2,20 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function Form(){
-
+function Form() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    function handleEmail(e){
+    function handleEmail(e) {
         setEmail(e.target.value);
     }
 
-    function handlePassword(e){
+    function handlePassword(e) {
         setPassword(e.target.value);
     }
 
-    async function clickLogin(e){
+    async function clickLogin(e) {
         e.preventDefault();
 
         try {
@@ -25,7 +24,7 @@ function Form(){
                 password
             });
 
-            alert(response.data.message); 
+            alert(response.data.message);
 
             const token = response.data.token; 
             if (token) { 
@@ -33,39 +32,52 @@ function Form(){
             } else {
                 alert('No token received, login failed');
             }
-            
-            navigate('/Home')
+
+            navigate('/Home');
         } catch (error) {
             console.error('Error during login:', error);
-            alert(error.response?.data?.message || 'Login failed'); 
+            alert(error.response?.data?.message || 'Login failed');
         }
-
     }
 
-    return(
-        <>
-            <div className="container">
+    return (
+        <div id="signup-body">
+            <div className="signup-container">
                 <h2 style={{ fontSize: '35px', fontFamily: "'Yanone Kaffeesatz', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif", fontWeight: 400 }}>SAKTHI SAADHAK</h2>
-                <h3 style={{ fontFamily: 'sans-serif' }}>Login</h3>  
+
+                <h3 style={{ fontFamily: 'sans-serif' }}>Log in</h3>
                 <form id="login-form" onSubmit={clickLogin}>
                     <div>
                         <label htmlFor="email">Email:</label>
-                        <input type="text" id="email" name="email" onChange={handleEmail}required />
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={email}
+                            onChange={handleEmail}
+                            required
+                        />
                     </div>
                     <div>
                         <label htmlFor="password">Password:</label>
-                        <input type="password" id="password" name="password" onChange={handlePassword}required />
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={password}
+                            onChange={handlePassword}
+                            required
+                        />
                     </div>
-                    <button type="submit">Login</button>
+                    <button type="submit" className="signup-button">Login</button>
                 </form>
                 <div className="info">
                     <p>Don't have an account? <a href="/Signup">Sign up</a></p>
                     <p><a href="#">Forgot Password?</a></p>
                 </div>
             </div>
-        </>
-
+        </div>
     );
 }
 
-export default Form
+export default Form;
