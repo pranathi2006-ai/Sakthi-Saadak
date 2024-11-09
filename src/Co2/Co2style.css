@@ -1,0 +1,288 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #13151a;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Main layout */
+main {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Hero section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6rem 8rem;
+    background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
+    min-height: 90vh;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #a9b1d1;
+    margin-bottom: 3rem;
+    max-width: 500px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(90deg, #00c2ff 0%, #01e8f7 100%);
+    color: #1a1f35;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 194, 255, 0.2);
+}
+
+.hero-image {
+    flex: 0 0 45%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Emissions section */
+.emissions-section {
+    padding: 6rem 8rem;
+    background: #0f1623;
+    scroll-margin-top: 2rem;
+}
+
+/* Graph styles */
+.graph-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.graph-container h2 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.graph-wrapper {
+    padding: 2rem;
+    height: 400px;
+}
+
+.graph {
+    height: 100%;
+    position: relative;
+}
+
+.graph-line {
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid rgba(169, 177, 209, 0.3);
+    padding-bottom: 2rem;
+}
+
+.graph-point {
+    width: 12px;
+    height: calc(var(--value) * 1%);
+    background: linear-gradient(180deg, #00c2ff 0%, #01e8f7 100%);
+    border-radius: 6px;
+    position: relative;
+    transition: height 1s ease;
+}
+
+.tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    color: #1a1f35;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.graph-point:hover .tooltip {
+    opacity: 1;
+}
+
+.graph-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    color: #a9b1d1;
+}
+
+/* Insights styles */
+.insights-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.insights-container h2 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.insight-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.insight-card:hover {
+    transform: translateY(-5px);
+}
+
+.insight-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.insight-card h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.insight-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00c2ff;
+    margin-bottom: 0.5rem;
+}
+
+.decrease {
+    color: #00f7a0;
+}
+
+.insight-desc {
+    color: #a9b1d1;
+    font-size: 0.9rem;
+}
+
+/* Recommendations */
+.recommendations {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.recommendations h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.recommendations ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recommendations li {
+    color: #a9b1d1;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.recommendations li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #00c2ff;
+}
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        padding: 4rem 2rem;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-content p {
+        margin: 0 auto 3rem;
+    }
+
+    .emissions-section {
+        padding: 4rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .insight-card {
+        padding: 1.5rem;
+    }
+}

@@ -4,6 +4,7 @@ import Signup from './Pages/Signup/Signup.jsx'
 import Home from './Pages/Home/Home.jsx'
 import Login from './Pages/Login/Login.jsx'
 import Input from './Pages/Input/Input.jsx'
+import Co2 from './Pages/Co2/Co2.jsx';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/Home" element={<Home />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Input" element={<Input />} />
+        <Route path="/Carbon" element={<Co2 />} />
       </Routes>
     </Router>
   )

@@ -4,8 +4,16 @@ import Image3 from '../../../Images/material comparisons.png'
 import Image4 from '../../../Images/reports nad graphs.png'
 import Image5 from '../../../Images/education articles.png'
 import Image6 from '../../../Images/renewable energy.png'
+import { useNavigate } from 'react-router-dom';
+
 
 function NavArticle(){
+
+    const navigate = useNavigate();
+
+    const handleCarbon = () => {
+        navigate('/Carbon'); 
+    };
 
     return (
         <>
@@ -17,7 +25,7 @@ function NavArticle(){
                 </div>
     
                 <div id="Footprint" className="nav-item">
-                    <img src={Image2} alt="Carbon Footprint Icon" className="nav-icon" />
+                    <img src={Image2} alt="Carbon Footprint Icon" className="nav-icon" onClick={handleCarbon}/>
                     <h3>Calculate Carbon Footprint</h3>
                     <p>Know the Carbon Footprint you're leaving behind</p>
                 </div>
