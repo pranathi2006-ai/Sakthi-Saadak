@@ -1,0 +1,403 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #13151a;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+main {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.RE-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6rem 8rem;
+    background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
+    min-height: 90vh;
+}
+
+.RE-hero-content {
+    max-width: 600px;
+}
+
+.RE-hero h1 {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.RE-hero-content p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #a9b1d1;
+    margin-bottom: 3rem;
+    max-width: 500px;
+}
+
+.RE-cta-button {
+    display: inline-block;
+    background: linear-gradient(90deg, #00c2ff 0%, #01e8f7 100%);
+    color: #1a1f35;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.RE-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 194, 255, 0.2);
+}
+
+.RE-hero-image {
+    flex: 0 0 45%;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Assessment form section */
+.RE-assessment-section {
+    padding: 6rem 8rem;
+    background: #0f1623;
+    scroll-margin-top: 2rem;
+}
+
+.RE-assessment-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3rem;
+    border-radius: 20px;
+}
+
+.RE-assessment-form h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: white;
+}
+
+.RE-form-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.RE-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #a9b1d1;
+}
+
+.RE-form-group input,
+.RE-form-group select {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.RE-form-group input:focus,
+.RE-form-group select:focus {
+    outline: none;
+    border-color: #00c2ff;
+}
+
+.RE-select-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #a9b1d1;
+}
+
+.RE-submit-button {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(90deg, #00c2ff 0%, #01e8f7 100%);
+    border: none;
+    border-radius: 10px;
+    color: #1a1f35;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.RE-submit-button:hover {
+    transform: translateY(-2px);
+}
+
+.RE-button-icon {
+    transition: transform 0.3s ease;
+}
+
+.RE-submit-button:hover .button-icon {
+    transform: translateX(5px);
+}
+
+.RE-results-section {
+    padding: 6rem 8rem;
+    background: #0f1623;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.RE-results-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.RE-potential-overview {
+    margin-bottom: 4rem;
+    color: #00c2ff;
+    ;
+}
+
+.RE-potential-overview h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color:#01e8f7;
+}
+
+.RE-potential-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.RE-potential-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.RE-potential-card:hover {
+    transform: translateY(-5px);
+}
+
+.RE-card-icon {
+    color: #00c2ff;
+    margin-bottom: 1rem;
+}
+
+.RE-potential-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #a9b1d1;
+}
+
+.RE-potential-card .value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00c2ff;
+    margin-bottom: 0.5rem;
+}
+
+.RE-potential-card p {
+    color: #a9b1d1;
+    font-size: 0.9rem;
+}
+
+.RE-graph-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.RE-graph-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.RE-graph-wrapper {
+    padding: 2rem;
+    height: 400px;
+}
+
+.RE-graph {
+    height: 100%;
+    position: relative;
+}
+
+.RE-graph-line {
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid rgba(169, 177, 209, 0.3);
+    padding-bottom: 2rem;
+}
+
+.RE-graph-point {
+    width: 12px;
+    height: 0;
+    background: linear-gradient(180deg, #00c2ff 0%, #01e8f7 100%);
+    border-radius: 6px;
+    position: relative;
+    transition: height 1s ease;
+}
+
+.RE-tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    color: #1a1f35;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.RE-graph-point:hover .tooltip {
+    opacity: 1;
+}
+
+.RE-graph-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    color: #a9b1d1;
+}
+
+/* Recommendations */
+.RE-recommendations {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.RE-recommendations h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.RE-recommendations ul {
+    list-style: none;
+}
+
+.RE-recommendations li {
+    color: #a9b1d1;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.RE-recommendations li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #00c2ff;
+}
+
+.backButton {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    color: var(--color-text-primary);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .backButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .backIcon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .backButton:hover .backIcon {
+    transform: translateX(-4px);
+  }
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .RE-hero {
+        flex-direction: column;
+        padding: 4rem 2rem;
+        text-align: center;
+    }
+
+    .RE-hero-content {
+        margin-bottom: 3rem;
+    }
+
+    .RE-hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .RE-hero-content p {
+        margin: 0 auto 3rem;
+    }
+
+    .RE-assessment-section,
+    .RE-results-section {
+        padding: 4rem 2rem;
+    }
+
+    .RE-potential-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .RE-assessment-form {
+        padding: 2rem;
+    }
+
+    .RE-graph-wrapper {
+        padding: 1rem;
+        height: 300px;
+    }
+}

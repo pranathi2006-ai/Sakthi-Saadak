@@ -9,7 +9,7 @@ function Insights(){
             <div className="insight-card">
               <div className="insight-icon">🌱</div>
               <h3>Current Status</h3>
-              <p className="insight-value">5.5 tons</p>
+              <p className="insight-value" id="calculation">5.5 tons</p>
               <p className="insight-desc">Your monthly CO2 emissions</p>
             </div>
           </div>

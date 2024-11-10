@@ -15,6 +15,10 @@ function NavArticle(){
         navigate("/Carbon"); 
     };
 
+    const handleRenewable = () => {
+        navigate("/Renewable"); 
+    };
+
     return (
         <>
             <div className="Nav_Articles_1">
@@ -50,7 +54,7 @@ function NavArticle(){
                     <p>Learn about conserving and preserving Energy</p>
                 </div>
             
-                <div id="RenewableEnergy" className="nav-item">
+                <div id="RenewableEnergy" className="nav-item" onClick={handleRenewable}>
                     <img src={Image6} alt="Renewable Energy Icon" className="nav-icon" />
                     <h3>Renewable Energy</h3>
                     <p>Learn about using Renewable Energy</p>
