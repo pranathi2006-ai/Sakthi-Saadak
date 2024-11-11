@@ -26,7 +26,6 @@ function NavBar() {
                         <a href="#" className="mb_a">Renewable Energy Data</a>
                     </div>   
                 </div>
-                <a href="#" id="input-parent_a_4" className="input-parent_a">Profile</a>
             </div>
         </nav>
     );

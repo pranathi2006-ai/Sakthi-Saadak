@@ -1,0 +1,320 @@
+/* Material Comparison Styles */
+.mc-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
+    padding: 2rem;
+    color: #ffffff;
+  }
+  
+  /* Back Button */
+  .mc-back-button {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .mc-back-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .mc-back-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .mc-back-button:hover .mc-back-icon {
+    transform: translateX(-4px);
+  }
+  
+  /* Header */
+  .mc-header {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  
+  .mc-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #ffffff, #00c2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .mc-header p {
+    color: #a9b1d1;
+    font-size: 1.2rem;
+  }
+  
+  /* Category Selector */
+  .mc-category-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .mc-category-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    color: #a9b1d1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .mc-category-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .mc-category-btn.active {
+    border-color: #00c2ff;
+    color: #ffffff;
+    background: rgba(0, 194, 255, 0.1);
+  }
+  
+  .mc-category-icon {
+    font-size: 1.5rem;
+  }
+  
+  /* View Controls */
+  .mc-view-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .mc-view-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 8px;
+    color: #a9b1d1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .mc-view-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .mc-view-btn.active {
+    background: #00c2ff;
+    color: #1a1f35;
+  }
+  
+  /* Material Grid */
+  .mc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .mc-material-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .mc-material-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .mc-material-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+  
+  .mc-material-specs {
+    margin-bottom: 1rem;
+  }
+  
+  .mc-spec {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: #a9b1d1;
+  }
+  
+  .mc-select-btn {
+    width: 100%;
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(0, 194, 255, 0.1);
+    border: 1px solid #00c2ff;
+    border-radius: 8px;
+    color: #00c2ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .mc-select-btn:hover:not(:disabled) {
+    background: #00c2ff;
+    color: #1a1f35;
+  }
+  
+  .mc-select-btn.selected {
+    background: #00c2ff;
+    color: #1a1f35;
+    cursor: default;
+  }
+  
+  /* Comparison Table */
+  .mc-table-container {
+    overflow-x: auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+  }
+  
+  .mc-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .mc-comparison-table th,
+  .mc-comparison-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(169, 177, 209, 0.1);
+  }
+  
+  .mc-comparison-table th {
+    background: rgba(0, 194, 255, 0.1);
+    color: #ffffff;
+    font-weight: 600;
+    position: relative;
+  }
+  
+  .mc-remove-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    color: #a9b1d1;
+    cursor: pointer;
+    padding: 0.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .mc-remove-btn:hover {
+    color: #ff4444;
+  }
+  
+  .mc-property {
+    color: #a9b1d1;
+    font-weight: 500;
+  }
+  
+  /* Chart View */
+  .mc-chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .mc-chart {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  
+  .mc-chart h3 {
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+  }
+  
+  .mc-bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .mc-bar-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .mc-bar-label {
+    width: 120px;
+    color: #a9b1d1;
+  }
+  
+  .mc-bar-wrapper {
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .mc-bar {
+    height: 24px;
+    background: linear-gradient(90deg, #00c2ff, #01e8f7);
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    color: #1a1f35;
+    font-weight: 500;
+    transition: width 0.6s ease;
+  }
+  
+  /* Empty State */
+  .mc-empty-state {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    color: #a9b1d1;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .mc-header h1 {
+      font-size: 2rem;
+    }
+  
+    .mc-category-selector {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .mc-category-btn {
+      flex-direction: row;
+      justify-content: center;
+    }
+  
+    .mc-view-controls {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .mc-grid {
+      grid-template-columns: 1fr;
+    }
+  }

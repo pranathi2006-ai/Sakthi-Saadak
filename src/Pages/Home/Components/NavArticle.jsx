@@ -19,6 +19,18 @@ function NavArticle(){
         navigate("/Renewable"); 
     };
 
+    const handleArticles = () => {
+        navigate("/Educational"); 
+    };
+
+    const handleComparision = () => {
+        
+    };
+
+    const handleReports = () => {
+        navigate("/Reports");
+    };
+
     return (
         <>
             <div className="Nav_Articles_1">
@@ -34,7 +46,7 @@ function NavArticle(){
                     <p>Know the Carbon Footprint you're leaving behind</p>
                 </div>
     
-                <div id="Material" className="nav-item">
+                <div id="Material" className="nav-item" onClick={handleComparision}>
                     <img src={Image3} alt="Material Comparison Icon" className="nav-icon" />
                     <h3>Material Comparison</h3>
                     <p>Learn about the materials used to preserve Energy</p>
@@ -42,13 +54,13 @@ function NavArticle(){
             </div>
     
             <div className="Nav_Articles_2">   
-                <div id="Reports" className="nav-item">
+                <div id="Reports" className="nav-item" onClick={handleReports} >
                     <img src={Image4} alt="Reports Icon" className="nav-icon" />
                     <h3>Reports and Graphs</h3>
                     <p>Monitor your Energy Usage</p>
                 </div>
             
-                <div id="Articles" className="nav-item">
+                <div id="Articles" className="nav-item" onClick={handleArticles}>
                     <img src={Image5} alt="Educational Articles Icon" className="nav-icon" />
                     <h3>Educational Articles</h3>
                     <p>Learn about conserving and preserving Energy</p>
