@@ -5,7 +5,7 @@ function About(){
         <>
             <section className="about-section">
                 <img src={Image} alt="about us" className="about-image" />
-                <h2>About Us</h2>
+                <h2 className="index-about-h2">About Us</h2>
                 <p>The mission at Sakthi Saadhak is leading people towards healthier and sustainable ways of energy.</p>
                 <p>Through insights, solutions, and tools that help individuals and companies minimize their carbon footprint.</p>
                 <p>We make a greener and more energy-efficient world by empowering people to know and be equipped with the necessary</p>

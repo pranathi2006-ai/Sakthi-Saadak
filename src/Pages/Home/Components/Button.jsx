@@ -10,7 +10,7 @@ function Button(){
     }
 
     return(
-        <button id="Input" onClick={handleClick}>Input Energy Usage</button>
+        <button id="home-Input" onClick={handleClick}>Input Energy Usage</button>
     );
 }
 

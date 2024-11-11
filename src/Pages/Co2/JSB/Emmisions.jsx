@@ -30,7 +30,7 @@ async function Emmisions(token) {
             totalPower += powerConsumption;
         });
 
-        let emmision = totalPower * 0.82;
+        let emmision = (totalPower * 0.82) / 1000;
 
         inputCO2.textContent = `${emmision} tons`;
 

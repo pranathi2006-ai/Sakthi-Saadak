@@ -5,8 +5,8 @@ function SelectBox(){
 
     return(
         <>
-            <h2 className="input-energy-h2">Input your Energy Usage</h2>
-            <div className="input-sel" id="sel">
+            <h2 id="input-energy-h2">INPUT YOUR ENERGY USAGE</h2>
+            <div id="input-sel" >
                 <div className="app">
                     <label htmlFor="Appliance">Appliance</label>
                     <select name="Appliance" id="Appliance" defaultValue=""required onChange={Data}>

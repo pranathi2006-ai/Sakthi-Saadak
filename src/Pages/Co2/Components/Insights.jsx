@@ -17,7 +17,8 @@ function Insights(){
           <div className="recommendations">
             <h3>Recommendations</h3>
             <ul>
-              <li>Switch to LED bulbs to reduce energy consumption</li>
+              <li>Switch to Renewable Energy Sources to reduce energy consumption</li>
+              <li></li>
             </ul>
           </div>
         </div>

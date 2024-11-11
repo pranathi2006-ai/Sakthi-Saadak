@@ -8,7 +8,7 @@ function Article(){
         <>
             <div className="Monitor">
             <div className="text_section">
-                <h1>MONITOR</h1>
+                <h1 className=''>MONITOR</h1>
                 <p>Check your energy usage and make sure you're in control of it. Available real-time data for you gives immediate understanding about how much there is of daily consumption in a household or business, helping to identify small areas which can be improved in great amounts.</p>
             </div>
             

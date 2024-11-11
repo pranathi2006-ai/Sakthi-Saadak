@@ -147,7 +147,7 @@ function Data(){
         selectedFreq = '';
         selectedRating = '';
 
-        const target = document.getElementById('Output');
+        const target = document.getElementById('input-output-section');
 
         if (target) {
             console.log('Output element found, scrolling...');

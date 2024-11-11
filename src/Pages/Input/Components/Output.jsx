@@ -3,14 +3,14 @@ import Data from '../Data.jsx'
 function Output(){
 
     return(
-        <div className="input-output-section" id="Output">
-            <h2>Output </h2>
-                <div className="input-total-consumption">
-                    <h3>Total Power Consumption</h3>
+        <div id="input-output-section">
+            <h2 id="input-output-h2">OUTPUT </h2>
+                <div id="input-total-consumption">
+                    <h3 id="input-output-h2">TOTAL POWER CONSUMPTION</h3>
                     <p id="input-total-power"></p>
                 </div>
             
-                <h2>Appliance Specific Details</h2>
+                <h2>APPLIANCE SPECIFIC DETAILS</h2>
             <table className="input-appliance-table">
                 <thead>
                     <tr>
@@ -26,8 +26,8 @@ function Output(){
             </table>
             
             <div className="input-suggestions">
-                    <h3>Suggestions:</h3>
-                        <h4 style={{ color: '#04a364', display: 'flex' }} id="Threshold"></h4>
+                    <h3 id="input-output-h3">Suggestions:</h3>
+                        <h4 style={{ color: '#00c2ff', display: 'flex' }} id="Threshold"></h4>
                     <ul id="input-suggestion-list">
                         
                     </ul>

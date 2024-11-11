@@ -169,7 +169,7 @@ h2 {
     background-color: #04a364;
     cursor: pointer;
 } 
-#Input {
+#home-Input {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     display: block;  
@@ -182,7 +182,7 @@ h2 {
     background-color: rgb(116, 196, 116);
 }
 
-#Input:hover {
+#home-Input:hover {
     background-color: #04a364;
     cursor: pointer;
 }
