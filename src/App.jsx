@@ -3,6 +3,7 @@ import Index from './Pages/Index/Index.jsx'
 import Signup from './Pages/Signup/Signup.jsx'
 import Home from './Pages/Home/Home.jsx'
 import Login from './Pages/Login/Login.jsx'
+import ForgotPassword from './Pages/ForgotPassword/ForgotPassword.jsx'
 import Input from './Pages/Input/Input.jsx'
 import Co2 from './Pages/Co2/Co2.jsx';
 import Reports from './Pages/Reports/Reports.jsx';
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Educational" element={<EducationalResources />} />
         <Route path="/Comparision" element={<MaterialComparision />} />
         <Route path="/Reports" element={<Reports />} />
+        <Route path="/Forgot" element={<ForgotPassword />} />
       </Routes>
     </Router>
   )
