@@ -83,4 +83,4 @@ function CostAnalysisChart({ dateRange }) {
   );
 }
 
-export default CostAnalysisChart;
+export default CostAnalysisChart

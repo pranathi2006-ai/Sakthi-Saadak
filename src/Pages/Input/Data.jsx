@@ -110,7 +110,7 @@ function Data(){
     async function saveApplianceData() {
         try {
             const token = localStorage.getItem('token');
-            console.log('Token:', token);
+            const currentDate = new Date().toISOString().split('T')[0]; 
             
             const response = await axios.post('http://localhost:5000/save-appliance', {
                 userId: '',
@@ -119,6 +119,7 @@ function Data(){
                 time: selectedTime,
                 frequency: selectedFreq,
                 rating: selectedRating,
+                date: currentDate 
             },  
             {
                 headers: {
@@ -703,73 +704,66 @@ function getSuggestions(appliance, company, time, freq, rating){
     }
 }
 
-// function displayInputValues(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating) {
+async function savePower(totalPower) {
+    try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            console.error('No token found');
+            return;
+        }
+        
+        const currentDate = new Date().toISOString().split('T')[0];
+        
+        const response = await axios.post(
+            'http://localhost:5000/save-power', 
+            { 
+                power: totalPower,
+                date: currentDate
+            },  
+            {
+                headers: {
+                    'Authorization': token 
+                }
+            }
+        );
 
-//     const thresholds = {
-//         'Refrigerator': 150 * 24,
-//         'Microwave': 1000 * 0.5,
-//         'Washing Machine': 700 * 0.5,
-//         'Electric Stove': 1500 * 1,
-//         'Water Heater': 2000 * 0.5,
-//         'Dishwasher': 1500 * 1,
-//         'Kettle': 1500 * 0.5,
-//         'Fan': 70 * 8,
-//         'Television': 120 * 4,
-//         'Vacuum': 1000 * 0.5,
-//         'Blender': 500 * 0.2,
-//         'Iron': 1500 * 0.5,
-//         'Light': 20 * 8,
-//         'Computer': 250 * 4
-//     };
+        console.log('Power data saved:', response.data);
+    } catch (error) {
+        console.error('Error saving power data:', error.response ? error.response.data : error.message);
+    }
+}
 
-//     const inputValuesBody = document.getElementById('inputValuesBody');
-//     inputValuesBody.innerHTML = '';
-//     const inputHeader = document.getElementById('total-power');
-
-//     const newRow = document.createElement('tr');
-
-//     newRow.innerHTML = 
-//         `<td>${selectedAppliance}</td>
-//         <td>${selectedRating*selectedTime}</td>
-//         <td>${thresholds[selectedAppliance]}</td>
-//         <td>${convertFloatToFreq(selectedFreq)}</td>`;
-
-//     inputValuesBody.appendChild(newRow);
-
-//     inputHeader.textContent = ${selectedRating*selectedTime}W;
-    
-// }
 
 async function displayInputValues(token) {
-
     const thresholds = {
-                'Refrigerator': 150 * 24,
-                'Microwave': 1000 * 0.5,
-                'Washing Machine': 700 * 0.5,
-                'Electric Stove': 1500 * 1,
-                'Water Heater': 2000 * 0.5,
-                'Dishwasher': 1500 * 1,
-                'Kettle': 1500 * 0.5,
-                'Fan': 70 * 8,
-                'Television': 120 * 4,
-                'Vacuum': 1000 * 0.5,
-                'Blender': 500 * 0.2,
-                'Iron': 1500 * 0.5,
-                'Light': 20 * 8,
-                'Computer': 250 * 4
-            };
+        'Refrigerator': 150 * 24,
+        'Microwave': 1000 * 0.5,
+        'Washing Machine': 700 * 0.5,
+        'Electric Stove': 1500 * 1,
+        'Water Heater': 2000 * 0.5,
+        'Dishwasher': 1500 * 1,
+        'Kettle': 1500 * 0.5,
+        'Fan': 70 * 8,
+        'Television': 120 * 4,
+        'Vacuum': 1000 * 0.5,
+        'Blender': 500 * 0.2,
+        'Iron': 1500 * 0.5,
+        'Light': 20 * 8,
+        'Computer': 250 * 4
+    };
 
     try {
-        const response = await axios.get('http://localhost:5000/get-appliance', {
+        const currentDate = new Date().toISOString().split('T')[0];
+        
+        const response = await axios.get(`http://localhost:5000/get-appliance?date=${currentDate}`, {
             headers: {
                 Authorization: token,
-                Accept : 'application/json'
+                Accept: 'application/json'
             }
         });
-        console.log(response);
 
-        const userData = response.data; 
-        console.log(userData); 
+        const userData = response.data;
+        console.log('User data for today:', userData);
 
         if (!Array.isArray(userData)) {
             console.error("Expected an array but received:", userData);
@@ -782,8 +776,14 @@ async function displayInputValues(token) {
 
         let totalPower = 0;
 
-        userData.forEach(data => {
-            const { appliance, company, time, frequency, rating } = data; 
+        const todayData = userData.filter(data => {
+            console.log("Data date:", data.date);
+            const itemDate = new Date(data.date).toISOString().split('T')[0];
+            return itemDate === currentDate;
+        });
+
+        todayData.forEach(data => {
+            const { appliance, company, time, frequency, rating } = data;
             const threshold = thresholds[appliance];
             const powerConsumption = rating * time;
 
@@ -799,6 +799,7 @@ async function displayInputValues(token) {
         });
 
         inputHeader.textContent = `${totalPower}W`;
+        await savePower(totalPower);
 
     } catch (error) {
         console.error("Error fetching data:", error);

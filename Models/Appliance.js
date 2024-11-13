@@ -7,6 +7,7 @@ const recordSchema = new mongoose.Schema({
     time: { type: Number, required: true },
     frequency: { type: Number, required: true },
     rating: { type: Number, required: true },
+    date: { type: String, required: true, default: () => new Date().toISOString().split('T')[0] }
 }, { timestamps: true });
 
 const Appliance = mongoose.model('Appliance', recordSchema);

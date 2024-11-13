@@ -111,4 +111,4 @@ function ComparisonStats({ dateRange }) {
   );
 }
 
-export default ComparisonStats;
+export default ComparisonStats

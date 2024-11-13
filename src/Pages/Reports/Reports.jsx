@@ -15,7 +15,6 @@ function Reports() {
   };
 
   const handleExport = () => {
-    // Implement export functionality
     console.log('Exporting reports...');
   };
 
@@ -37,8 +36,7 @@ function Reports() {
         <div className="date-range-selector">
           <button 
             className="date-picker-btn"
-            onClick={() => setShowDatePicker(!showDatePicker)}
-          >
+            onClick={() => setShowDatePicker(!showDatePicker)}>
             <Calendar className="icon" />
             <span>Select Date Range</span>
           </button>
@@ -73,4 +71,4 @@ function Reports() {
   );
 }
 
-export default Reports;
+export default Reports

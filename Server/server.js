@@ -7,6 +7,8 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../Models/User.js';
 import Appliance from '../Models/Appliance.js';
+import Power from '../Models/Power.js';
+import { startOfDay, endOfDay } from 'date-fns';
 
 
 dotenv.config();
@@ -80,16 +82,17 @@ app.post('/login', async (req, res) => {
 });
 
 app.post('/save-appliance', authenticateToken, async (req, res) => {
-  const { appliance, company, time, frequency, rating } = req.body;
+  const { appliance, company, time, frequency, rating, date } = req.body;
 
   try {
     const record = new Appliance({
-      userId: req.user.id, // Link the record to the logged-in user's ID
+      userId: req.user.id, 
       appliance,
       company,
       time,
       frequency,
       rating,
+      date
     });
 
     await record.save();
@@ -103,13 +106,13 @@ app.get('/get-appliance', authenticateToken, async (req, res) => {
   try {
     const appliances = await Appliance.find({ userId: req.user.id });
     
-    // Transform the data to match the expected format
     const formattedAppliances = appliances.map(appliance => ({
       appliance: appliance.appliance,
       company: appliance.company,
       time: appliance.time,
       frequency: appliance.frequency,
-      rating: appliance.rating
+      rating: appliance.rating,
+      date: appliance.date
     }));
 
     res.status(200).json(formattedAppliances);
@@ -117,6 +120,66 @@ app.get('/get-appliance', authenticateToken, async (req, res) => {
     console.error("Error retrieving appliances:", error);
     res.status(500).json({ 
       error: 'Failed to retrieve appliances',
+      details: error.message 
+    });
+  }
+});
+
+app.post('/save-power', authenticateToken, async (req, res) => {
+  const { power } = req.body;
+
+  try {
+    const todayStart = startOfDay(new Date()); // Start of today
+    const todayEnd = endOfDay(new Date()); // End of today
+
+    // Find any power records for today
+    const existingRecord = await Power.findOne({
+      userId: req.user.id,
+      createdAt: { $gte: todayStart, $lte: todayEnd },
+    });
+
+    if (existingRecord) {
+      existingRecord.power += power;
+      await existingRecord.save();
+      res.status(200).json({ message: 'Power updated successfully' });
+    } else {
+      const newRecord = new Power({
+        userId: req.user.id,
+        power,
+      });
+      await newRecord.save();
+      res.status(201).json({ message: 'Power saved successfully' });
+    }
+  } catch (error) {
+    console.error("Error saving power:", error);
+    res.status(500).json({ error: 'Failed to save record', details: error.message });
+  }
+});
+
+app.get('/get-power', authenticateToken, async (req, res) => {
+  try {
+    const powers = await Power.find({ userId: req.user.id });
+
+    const groupedData = powers.reduce((acc, power) => {
+      const date = power.createdAt.toISOString().split('T')[0]; 
+
+      if (!acc[date]) {
+        acc[date] = [];
+      }
+      
+      acc[date].push({
+        power: power.power,
+        time: power.createdAt,
+      });
+      
+      return acc;
+    }, {});
+
+    res.status(200).json(groupedData);
+  } catch (error) {
+    console.error("Error retrieving powers:", error);
+    res.status(500).json({ 
+      error: 'Failed to retrieve powers',
       details: error.message 
     });
   }

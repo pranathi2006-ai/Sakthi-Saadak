@@ -23,4 +23,4 @@ function DateRangePicker({ onSelect }) {
   );
 }
 
-export default DateRangePicker;
+export default DateRangePicker
