@@ -73,7 +73,7 @@ function Form() {
                 </form>
                 <div className="info">
                     <p>Don't have an account? <a href="/Signup">Sign up</a></p>
-                    <p><a href="#">Forgot Password?</a></p>
+                    <p><a href="/Forgot">Forgot Password?</a></p>
                 </div>
             </div>
         </div>

@@ -1,195 +1,277 @@
 .reports-container {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #004037 0%, #002420 100%);
-    padding: 2rem;
-    color: #ffffff;
-  }
-  
-  .reports-nav {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-  }
-  
-  .back-btn,
-  .export-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    color: #ffffff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .back-btn:hover,
-  .export-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  
-  .reports-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .reports-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(90deg, #ffffff, #0eff85);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .date-range-selector {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .date-picker-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: rgba(14, 255, 133, 0.1);
-    border: 1px solid #0eff85;
-    border-radius: 8px;
-    color: #0eff85;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .date-picker-btn:hover {
-    background: rgba(14, 255, 133, 0.2);
-  }
-  
-  .date-picker-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 10;
-    background: #003028;
-    border: 1px solid rgba(14, 255, 133, 0.2);
-    border-radius: 8px;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-    min-width: 200px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  .date-range-option {
-    width: 100%;
-    padding: 0.5rem 1rem;
-    text-align: left;
-    background: none;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .date-range-option:hover {
-    background: rgba(14, 255, 133, 0.1);
-    color: #0eff85;
-  }
-  
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
+  padding: 2rem;
+  color: #ffffff;
+}
+
+.reports-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  background: #1a1f35 ;
+}
+
+.back-btn,
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  color: #ffffff;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover,
+.export-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.reports-header {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.reports-header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #ffffff, #00c2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.date-range-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.date-picker-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  background: rgba(0, 194, 255, 0.1);
+  border: 1px solid #00c2ff;
+  border-radius: 8px;
+  color: #00c2ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.date-picker-btn:hover {
+  background: rgba(0, 194, 255, 0.2);
+}
+
+.date-picker-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  background: #1a1f35;
+  border: 1px solid rgba(0, 194, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.date-range-option {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #a9b1d1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.date-range-option:hover {
+  background: rgba(0, 194, 255, 0.1);
+  color: #00c2ff;
+}
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.chart-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  grid-column: span 2;
+  transition: transform 0.3s ease;
+}
+
+.chart-section:hover {
+  transform: translateY(-5px);
+}
+
+.chart-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.stats-section {
+  grid-column: span 2;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.stat-icon {
+  color: #00c2ff;
+}
+
+.stat-content {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, #ffffff, #00c2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-change {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #a9b1d1;
+}
+
+.trend-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.trend-icon.up {
+  color: #ff4444;
+}
+
+.trend-icon.down {
+  color: #00c2ff;
+}
+
+.positive {
+  color: #00c2ff;
+}
+
+.negative {
+  color: #ff4444;
+}
+
+/* Chart Styles */
+.chart-container {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.chart-title {
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+/* Table Styles */
+.reports-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.reports-table th,
+.reports-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(169, 177, 209, 0.1);
+}
+
+.reports-table th {
+  background: rgba(0, 194, 255, 0.1);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.reports-table td {
+  color: #a9b1d1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .reports-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-  
-  .chart-section {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 1.5rem;
-    grid-column: span 2;
-  }
-  
-  .chart-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: #ffffff;
-  }
-  
-  .stats-section {
-    grid-column: span 2;
-  }
-  
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .stat-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 1.5rem;
-  }
-  
-  .stat-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .stat-icon {
-    color: #0eff85;
-  }
-  
-  .stat-content {
-    text-align: center;
-  }
-  
-  .stat-value {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  
-  .stat-change {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  
-  .trend-icon {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .trend-icon.up {
-    color: #ff4444;
-  }
-  
-  .trend-icon.down {
-    color: #0eff85;
-  }
-  
-  .positive {
-    color: #0eff85;
-  }
-  
-  .negative {
-    color: #ff4444;
-  }
-  
-  @media (max-width: 768px) {
-    .reports-grid {
       grid-template-columns: 1fr;
-    }
-  
-    .chart-section,
-    .stats-section {
-      grid-column: span 1;
-    }
-  
-    .reports-header h1 {
-      font-size: 2rem;
-    }
   }
+
+  .chart-section,
+  .stats-section {
+      grid-column: span 1;
+  }
+
+  .reports-header h1 {
+      font-size: 2rem;
+  }
+
+  .reports-nav {
+      flex-direction: column;
+      gap: 1rem;
+  }
+
+  .date-picker-dropdown {
+      width: 100%;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.reports-container {
+  animation: fadeIn 0.5s ease-out;
+}
