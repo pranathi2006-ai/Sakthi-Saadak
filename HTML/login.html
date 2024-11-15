@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakthi Saadak - Login</title>
+    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="icon" type="image/png" href="../Images/fevicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet">
+    <script src="../JS/login.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+      
+        <h2 style="font-size: 35px; font-family:'Yanone Kaffeesatz', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 400;">SAKTHI SAADHAK</h2>
+
+        <h3 style="font-size: 25px;">Login</h3>  
+        <form id="login-form">
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div class="info">
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+            <p><a href="#">Forgot Password?</a></p>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyCnKdlypGWNiM9bFuXTLyQY6y8ogxVl-Fc",
+            authDomain: "sakthi-saadhak.firebaseapp.com",
+            projectId: "sakthi-saadhak",
+            storageBucket: "sakthi-saadhak.appspot.com",
+            messagingSenderId: "1062042370266",
+            appId: "1:1062042370266:web:e61755acdf58f2cd4f25e3",
+            measurementId: "G-TTLS5K3L8K",
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+    
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+    
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                alert('Login successful!');
+                document.getElementById('login-form').reset();
+
+                window.location.href = 'home.html'; 
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Energy Usage</title>
+    <link rel="stylesheet" href="../CSS/Input.css">
+        <link rel="icon" type="image/png" href="../Images/fevicon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">   
+</head>
+<body>
+    <h1 id="main_heading"><img class ="logo" src="../Images/logo png.png" alt="">SAKTHI SAADHAK</h1>
+    <nav>
+        <div class="Nav_bar">
+            <a href="#" id="parent_a_1" class="parent_a">Energy Usage
+                <div id="Menubox_1" class="Menubox">
+                    <a href="#" class="mb_a">Energy Usage</a>
+                    <a href="#" class="mb_a">Carbon Footprint</a>
+                </div>
+            </a>   
+            <a href="#" id="parent_a_2" class="parent_a">View
+                <div id="Menubox_2" class="Menubox">
+                    <a href="#" class="mb_a">Material Comparision</a>
+                    <a href="#" class="mb_a">Reports</a>
+                    <a href="#" class="mb_a">Articles</a>
+                </div>   
+            </a>
+            <a href="#" id="parent_a_3" class="parent_a">Renewable Energy
+                <div id="Menubox_3" class="Menubox">
+                    <a href="#" class="mb_a">Renewable Energy Potential</a>
+                    <a href="#" class="mb_a">Renewable Energy Data</a>
+                </div>   
+            </a>
+            <a href="#" id="parent_a_4" class="parent_a">Profile</a>
+        </div>
+    </nav>
+
+    <h2>Input your Energy Usage</h2>
+
+    <div class="sel" id="sel">
+        <div class="app">
+            <label for="Appliance">Appliance</label>
+            <select name="Appliance" id="Appliance" required onchange="updateSubSelect()">
+                <option value="" disabled selected>Select an Appliance</option>
+                <option value="Refrigerator">Refrigerator</option>
+                <option value="Microwave">Microwave</option>
+                <option value="Washing Machine">Washing Machine</option>
+                <option value="Electric Stove">Electric Stove</option>
+                <option value="Water Heater">Water Heater</option>
+                <option value="Dishwasher">Dishwasher</option>
+                <option value="Kettle">Electric Kettle</option>
+                <option value="Fans">Fans</option>
+                <option value="Television">Television</option>
+                <option value="Vacuum">Vacuum cleaner</option>
+                <option value="Blender">Blender</option>
+                <option value="Iron">Iron</option>
+                <option value="Light">Tube Light</option>
+                <option value="Computer">Computer</option>
+            </select>
+        </div>
+    
+        <div class="Company">
+            <label for="Company">Company</label>
+            <select id="Company" name="Company" disabled required>
+                <option value="" disabled selected>Select a company</option>
+            </select>
+        </div>
+
+        <div class="Time">
+            <label for="Time">Time</label>
+            <select name="Time" id="Time" disabled required>
+                <option value="" disabled selected>Amount of Time Used</option>    
+            </select>
+        </div>
+
+        <div class="Freq">
+            <label for="Freq">Frequency</label>
+            <select name="Freq" id="Freq" required>
+                <option value="" disabled selected>Usage Frequency</option>
+                <option value="Once a week">Once a week</option>
+                <option value="Twice a week">Twice a week</option>
+                <option value="3-4 times a week">3-4 times a week</option>
+                <option value="More than 4 times a week">More than 4 times a week</option>
+                <option value="Everyday">Everyday</option>
+            </select>
+        </div>
+
+        <div class="Rating">
+            <label for="Rating">Rating</label>
+            <select name="Rating" id="Rating" disabled required>
+                <option value="" disabled selected>Select the Power Rating</option>    
+            </select>
+        </div>
+        
+    </div>
+
+    <button id="Input">Submit</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const parentLinks = document.querySelectorAll(".parent_a");
+        
+            parentLinks.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault(); 
+                    const allDropdowns = document.querySelectorAll(".Menubox");
+                    allDropdowns.forEach(dropdown => {
+                        if (dropdown !== this.nextElementSibling) {
+                            dropdown.style.display = "none";
+                        }
+                    });
+        
+                    const dropdown = this.nextElementSibling;
+                    dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+                });
+            });
+        
+            document.addEventListener("click", function(event) {
+                parentLinks.forEach(link => {
+                    const dropdown = link.nextElementSibling;
+                    if (dropdown.style.display === "block" && !link.contains(event.target) && !dropdown.contains(event.target)) {
+                        dropdown.style.display = "none";
+                    }
+                });
+            });
+        });
+
+        const select = document.getElementById('sel');
+        const select1 = document.getElementById('Appliance');
+        const select2 = document.getElementById('Company');
+        const select3 = document.getElementById('Time');
+        const select4 = document.getElementById('Freq');
+        const select5 = document.getElementById('Rating');
+
+        sel.addEventListener('submit', function(event) {
+            if (select1.value === '' || select2.value === '' || select3.value === '' || select4.value === '' || select5.value === '') {
+                select1.required = true;
+                select2.required = true;
+                select3.required = true;
+                select4.required = true;
+                select5.required = true;
+                
+                event.preventDefault();
+
+                alert('Please fill out all required fields!');
+            }
+        });
+
+
+        </script>
+    <div class="output-section" id="Output">
+        <h2>Output </h2>
+            <div class="total-consumption">
+                <h3>Total Power Consumption</h3>
+                <p id="total-power"></p>
+            </div>
+        
+            <h2>Appliance Specific Details</h2>
+        <table class="appliance-table">
+            <thead>
+                <tr>
+                    <th>Appliance Name</th>
+                    <th>Average Power Consumption (W)</th>
+                    <th>Threshold</th>
+                    <th>Usage Pattern</th>
+                </tr>
+            </thead>
+            <tbody id="inputValuesBody">
+               
+            </tbody>
+        </table>
+        
+        <div class="suggestions">
+                <h3>Suggestions:</h3>
+                     <h4 style="color: #04a364; display: flex;" id="Threshold"></h4>
+                <ul id="suggestion-list">
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <script src="../JS/input.js"></script>
+
+</body>
+</html>
