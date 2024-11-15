@@ -50,6 +50,11 @@ main {
     max-width: 500px;
 }
 
+.co2-button {
+    display: flex;
+    justify-content: center;
+}
+
 .cta-button {
     display: inline-block;
     background: linear-gradient(90deg, #00c2ff 0%, #01e8f7 100%);
@@ -60,10 +65,13 @@ main {
     font-weight: 600;
     text-decoration: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .cta-button:hover {
     transform: translateY(-2px);
+    cursor: pointer;
     box-shadow: 0 10px 20px rgba(0, 194, 255, 0.2);
 }
 
@@ -88,40 +96,57 @@ main {
     border-radius: 20px;
     padding: 2rem;
     margin-bottom: 3rem;
+    color: #ffffff;
 }
 
 .graph-container h2 {
-    color: #ffffff;
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
 .graph-wrapper {
-    padding: 2rem;
+    display: flex;
+    align-items: flex-end;
     height: 400px;
-}
-
-.graph {
-    height: 100%;
     position: relative;
 }
 
-.graph-line {
-    height: 80%;
+.y-axis-labels {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    margin-right: 1rem;
+    height: 100%;
+    color: #a9b1d1;
+}
+
+.graph {
+    display: flex;
     align-items: flex-end;
-    border-bottom: 2px solid rgba(169, 177, 209, 0.3);
-    padding-bottom: 2rem;
+    height: 100%;
+    width: 100%;
+}
+
+.graph-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.graph-line {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .graph-point {
     width: 12px;
-    height: calc(var(--value) * 1%);
     background: linear-gradient(180deg, #00c2ff 0%, #01e8f7 100%);
     border-radius: 6px;
-    position: relative;
     transition: height 1s ease;
 }
 
@@ -144,11 +169,10 @@ main {
     opacity: 1;
 }
 
-.graph-labels {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
+.graph-label {
     color: #a9b1d1;
+    margin-top: 1rem;
+    font-size: 0.8rem;
 }
 
 .insights-container {

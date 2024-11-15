@@ -24,17 +24,25 @@ function NavArticle(){
     };
 
     const handleComparision = () => {
+<<<<<<< Updated upstream
         navigate("/comparision");
+=======
+        navigate("/Comparision");
+>>>>>>> Stashed changes
     };
 
     const handleReports = () => {
         navigate("/Reports");
     };
 
+    const handleEnergy = () => {
+        navigate("/Input");
+    };
+
     return (
         <>
             <div className="Nav_Articles_1">
-                <div id="Usage" className="nav-item">
+                <div id="Usage" className="nav-item" onClick={handleEnergy}>
                     <img  src={Image1} alt="Energy Usage Icon" className="nav-logo" />
                     <h3>Energy Usage</h3>
                     <p>Know about your Energy Usage</p>

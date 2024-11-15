@@ -15,7 +15,7 @@ function Output(){
                 <thead>
                     <tr>
                         <th>Appliance Name</th>
-                        <th>Average Power Consumption (W)</th>
+                        <th>Average Power Consumption (W-h)</th>
                         <th>Threshold</th>
                         <th>Usage Pattern</th>
                     </tr>

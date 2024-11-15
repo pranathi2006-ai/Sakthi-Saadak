@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Hero from './Components/Hero';
-import Graph from './Components/Graph';
 import Insights from './Components/Insights';
+import Emmisions from './JSB/Emmisions'
 import './Co2.css'; 
 
 function Co2() {
@@ -15,6 +15,18 @@ function Co2() {
     window.scrollTo(0, 0);
   }, []);
 
+  function handleEmmision(){
+    const token = localStorage.getItem('token');
+    const insights = document.getElementById("calculation-container");
+  
+    window.scrollTo({
+      top: insights.offsetTop,  
+      behavior: 'smooth'  
+  });
+
+    Emmisions(token);
+  }
+
   return (
     <div className="co2-tracker">
       <button onClick={handleBack} className="backButton">
@@ -23,7 +35,9 @@ function Co2() {
       </button>
       <Hero />
       <section id="emissions-data" className="emissions-section">
-        <Graph />
+        <div className="co2-button">
+          <button className="cta-button" onClick={handleEmmision}>Click to know your carbon footprint</button>
+        </div>
         <Insights />
       </section>
     </div>

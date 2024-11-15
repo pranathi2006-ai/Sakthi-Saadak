@@ -191,4 +191,4 @@ function EducationalResources() {
   );
 }
 
-export default EducationalResources;
+export default EducationalResources

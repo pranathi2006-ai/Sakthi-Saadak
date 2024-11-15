@@ -3,13 +3,13 @@ function Insights(){
 
 
     return(
-        <div className="insights-container">
+        <div className="insights-container" id="calculation-container">
           <h2>Your Carbon Insights</h2>
           <div className="insights-grid">
             <div className="insight-card">
               <div className="insight-icon">🌱</div>
               <h3>Current Status</h3>
-              <p className="insight-value" id="calculation">5.5 tons</p>
+              <p className="insight-value" id="calculation"></p>
               <p className="insight-desc">Your monthly CO2 emissions</p>
             </div>
           </div>

@@ -37,7 +37,7 @@ const authenticateToken = (req, res, next) => {
   };
 
 app.post('/signup', async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, location } = req.body;
 
   try {
       const hashedPassword = await bcrypt.hash(password, 10);
@@ -46,6 +46,7 @@ app.post('/signup', async (req, res) => {
           username,
           email,
           password: hashedPassword,
+          location
       });
 
       await user.save();
@@ -126,26 +127,28 @@ app.get('/get-appliance', authenticateToken, async (req, res) => {
 });
 
 app.post('/save-power', authenticateToken, async (req, res) => {
-  const { power } = req.body;
+  const { power, cost, date } = req.body;
+  const currentDate = date;
 
   try {
-    const todayStart = startOfDay(new Date()); // Start of today
-    const todayEnd = endOfDay(new Date()); // End of today
-
     // Find any power records for today
     const existingRecord = await Power.findOne({
       userId: req.user.id,
-      createdAt: { $gte: todayStart, $lte: todayEnd },
+      date: currentDate,
     });
 
     if (existingRecord) {
-      existingRecord.power += power;
+      existingRecord.power = power;
+      existingRecord.cost = cost;
+
       await existingRecord.save();
       res.status(200).json({ message: 'Power updated successfully' });
     } else {
       const newRecord = new Power({
         userId: req.user.id,
         power,
+        cost,
+        date,
       });
       await newRecord.save();
       res.status(201).json({ message: 'Power saved successfully' });
@@ -169,6 +172,7 @@ app.get('/get-power', authenticateToken, async (req, res) => {
       
       acc[date].push({
         power: power.power,
+        cost: power.cost,
         time: power.createdAt,
       });
       
@@ -182,6 +186,57 @@ app.get('/get-power', authenticateToken, async (req, res) => {
       error: 'Failed to retrieve powers',
       details: error.message 
     });
+  }
+});
+
+app.get('/get-average-power', authenticateToken, async (req, res) => {
+  try {
+    const allPowers = await Power.find({});
+    
+    const groupedByDate = allPowers.reduce((acc, record) => {
+      const date = record.createdAt.toISOString().split('T')[0];
+      
+      if (!acc[date]) {
+        acc[date] = {
+          totalCost: 0,
+          userCount: new Set(),
+        };
+      }
+      
+      acc[date].totalCost += record.cost;
+      acc[date].userCount.add(record.userId.toString());
+      
+      return acc;
+    }, {});
+
+    const averages = Object.entries(groupedByDate).reduce((acc, [date, data]) => {
+      acc[date] = data.totalCost / data.userCount.size;
+      return acc;
+    }, {});
+
+    res.status(200).json(averages);
+  } catch (error) {
+    console.error("Error calculating average power:", error);
+    res.status(500).json({ 
+      error: 'Failed to calculate average power',
+      details: error.message 
+    });
+  }
+});
+
+app.get('/get-location', authenticateToken, async (req, res) => {
+  try {
+      const user = await User.findById(req.user.id);
+
+      if (!user) {
+          return res.status(404).json({ message: "User not found" });
+      }
+
+      res.json({ location: user.location });
+
+  } catch (error) {
+      console.error("Error fetching user location:", error);
+      res.status(500).json({ message: "Internal server error" });
   }
 });
 

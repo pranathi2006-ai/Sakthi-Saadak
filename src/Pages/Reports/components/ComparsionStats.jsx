@@ -1,26 +1,104 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { TrendingUp, TrendingDown, Zap, DollarSign, Leaf } from 'lucide-react';
+import axios from 'axios';
+import { format, subDays, startOfWeek, endOfWeek } from 'date-fns';
 
-function ComparisonStats({ dateRange }) {
-  const stats = {
+function ComparisonStats() {
+  const [stats, setStats] = useState({
     usage: {
-      current: 450,
-      previous: 500,
+      current: 0,
+      previous: 0,
       unit: 'kWh'
     },
     cost: {
-      current: 120,
-      previous: 135,
-      unit: '$'
+      current: 0,
+      previous: 0,
+      unit: '₹'
     },
     carbon: {
-      current: 200,
-      previous: 225,
+      current: 0,
+      previous: 0,
       unit: 'kg'
+    }
+  });
+
+  useEffect(() => {
+    fetchStats();
+    const interval = setInterval(fetchStats, 300000); // Update every 5 minutes
+    return () => clearInterval(interval);
+  }, []);
+
+  const fetchStats = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        console.error('No token found');
+        return;
+      }
+
+      // Get current and previous week dates
+      const today = new Date();
+      const currentWeekStart = startOfWeek(today);
+      const previousWeekStart = subDays(currentWeekStart, 7);
+
+      const response = await axios.get('http://localhost:5000/get-power', {
+        headers: {
+          'Authorization': token
+        }
+      });
+
+      const groupedData = response.data;
+
+      // Calculate current week stats
+      let currentWeekPower = 0;
+      let currentWeekCost = 0;
+      let previousWeekPower = 0;
+      let previousWeekCost = 0;
+
+      Object.entries(groupedData).forEach(([date, dayData]) => {
+        const dateObj = new Date(date);
+        const power = dayData.reduce((sum, entry) => sum + entry.power, 0);
+        const cost = dayData.reduce((sum, entry) => sum + entry.cost, 0);
+
+        if (dateObj >= currentWeekStart && dateObj <= today) {
+          currentWeekPower += power;
+          currentWeekCost += cost;
+        } else if (dateObj >= previousWeekStart && dateObj < currentWeekStart) {
+          previousWeekPower += power;
+          previousWeekCost += cost;
+        }
+      });
+
+      currentWeekPower = currentWeekPower / 1000;
+      previousWeekPower = previousWeekPower / 1000;
+
+      const currentCarbon = currentWeekPower * 0.82;
+      const previousCarbon = previousWeekPower * 0.82;
+
+      setStats({
+        usage: {
+          current: Math.round(currentWeekPower * 100) / 100,
+          previous: Math.round(previousWeekPower * 100) / 100,
+          unit: 'kWh'
+        },
+        cost: {
+          current: Math.round(currentWeekCost * 100) / 100,
+          previous: Math.round(previousWeekCost * 100) / 100,
+          unit: '₹'
+        },
+        carbon: {
+          current: Math.round(currentCarbon * 100) / 100,
+          previous: Math.round(previousCarbon * 100) / 100,
+          unit: 'kg'
+        }
+      });
+    } catch (error) {
+      console.error('Error fetching stats:', error);
     }
   };
 
   const calculateChange = (current, previous) => {
+    if (previous === 0) return '0.0';
     const change = ((current - previous) / previous) * 100;
     return change.toFixed(1);
   };
@@ -60,7 +138,7 @@ function ComparisonStats({ dateRange }) {
           <h3>Cost</h3>
         </div>
         <div className="stat-content">
-          <p className="stat-value">{stats.cost.current} {stats.cost.unit}</p>
+          <p className="stat-value">{stats.cost.unit} {stats.cost.current}</p>
           <div className="stat-change">
             {stats.cost.current < stats.cost.previous ? (
               <>
@@ -111,4 +189,4 @@ function ComparisonStats({ dateRange }) {
   );
 }
 
-export default ComparisonStats
+export default ComparisonStats;

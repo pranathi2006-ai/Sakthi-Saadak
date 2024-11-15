@@ -704,7 +704,29 @@ function getSuggestions(appliance, company, time, freq, rating){
     }
 }
 
-async function savePower(totalPower) {
+async function getLocation(token) {
+    try {
+        const response = await axios.get('http://localhost:5000/get-location', {
+            headers: {
+                Authorization: token,
+                Accept: 'application/json'
+            }
+        });
+
+        const location = response.data.location;
+
+        console.log("User's location:", location);
+
+        return location;
+
+    } catch (error) {
+        console.error("Error fetching location:", error);
+        return null; 
+    }
+}
+
+
+async function savePowerCost(totalPower, totalCost) {
     try {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -718,6 +740,7 @@ async function savePower(totalPower) {
             'http://localhost:5000/save-power', 
             { 
                 power: totalPower,
+                cost: totalCost,
                 date: currentDate
             },  
             {
@@ -732,7 +755,6 @@ async function savePower(totalPower) {
         console.error('Error saving power data:', error.response ? error.response.data : error.message);
     }
 }
-
 
 async function displayInputValues(token) {
     const thresholds = {
@@ -752,8 +774,49 @@ async function displayInputValues(token) {
         'Computer': 250 * 4
     };
 
+    const costs = {
+        'Andhra Pradesh' : 6,
+        'Arunachal Pradesh' : 5.5,
+        'Assam' : 5.75,
+        'Bihar' : 6.75,
+        'Chhattisgarh' : 5,
+        'Goa' : 3.75,
+        'Gujarat' : 5.25,
+        'Haryana' : 6.25,
+        'Himachal Pradesh' : 4.25,
+        'Jharkhand' : 6.25,
+        'Karnataka' : 5.5,
+        'Kerala' : 4.25,
+        'Madhya Pradesh' : 7,
+        'Maharashtra' : 6.5,
+        'Manipur' : 5.75,
+        'Meghalaya' : 4.75,
+        'Mizoram' : 5.5,
+        'Nagaland' : 5.5,
+        'Odisha' : 5.5,
+        'Punjab' : 5,
+        'Rajasthan' : 6,
+        'Sikkim' : 4.5,
+        'Tamil Nadu' : 5.25,
+        'Telangana' : 6.25,
+        'Tripura' : 5,
+        'Uttar Pradesh' : 6.5,
+        'Uttarakhand' : 4.75,
+        'West Bengal' : 6,
+        'Andaman and Nicobar Islands' : 7.5,
+        'Chandigarh' : 5,
+        'Dadra and Nagar Haveli' : 4.5,
+        'Daman and Diu' : 4.5,
+        'Lakshadweep' : 5,
+        'Delhi' : 4.5,
+        'Puducherry' : 4.5,
+        'Ladakh' : 6.25,
+        'Jammu and Kashmir' : 6.25
+    };
+
     try {
         const currentDate = new Date().toISOString().split('T')[0];
+        const location = await getLocation(token);
         
         const response = await axios.get(`http://localhost:5000/get-appliance?date=${currentDate}`, {
             headers: {
@@ -775,6 +838,7 @@ async function displayInputValues(token) {
         inputValuesBody.innerHTML = '';
 
         let totalPower = 0;
+        let totalCost = 0;
 
         const todayData = userData.filter(data => {
             console.log("Data date:", data.date);
@@ -787,19 +851,24 @@ async function displayInputValues(token) {
             const threshold = thresholds[appliance];
             const powerConsumption = rating * time;
 
+            const stateCost = costs[location];
+            const indiCost = (stateCost * powerConsumption) / 1000;
+
             const newRow = document.createElement('tr');
             newRow.innerHTML = 
                 `<td>${appliance}</td>
                 <td>${powerConsumption}</td>
                 <td>${threshold}</td>
-                <td>${convertFloatToFreq(frequency)}</td>`;
+                <td>${`₹${indiCost.toFixed(2)}`}</td>`;
 
             inputValuesBody.appendChild(newRow);
             totalPower += powerConsumption;
+            totalCost += indiCost;
         });
+        console.log(totalPower);
 
-        inputHeader.textContent = `${totalPower}W`;
-        await savePower(totalPower);
+        inputHeader.textContent = `${totalPower/1000}KW-h`;
+        await savePowerCost(totalPower, totalCost);
 
     } catch (error) {
         console.error("Error fetching data:", error);

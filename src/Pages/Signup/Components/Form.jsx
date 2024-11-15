@@ -41,7 +41,6 @@ function Form(){
               email,
               password,
             });
-            alert("User Signed Up Successfully!");
 
             const { token } = response.data; 
             localStorage.setItem('token', token);
