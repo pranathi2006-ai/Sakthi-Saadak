@@ -13,7 +13,12 @@
     padding: 30px;
     text-align: center;
     font-size: 45px;
+    font-weight: 780;
     color: #ffffff;
+    background: linear-gradient(90deg, #ffffff, #00c2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
 }
 
 .app, .Company, .Time, .Freq, .Rating {

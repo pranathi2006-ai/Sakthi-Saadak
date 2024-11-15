@@ -12,7 +12,7 @@ function NavBar(){
                 <div className="parent_a" id="parent_a_2">View</div>
                 <div id="Menubox_2" className="Menubox">
                     <a href="#" className="mb_a">Material Comparision</a>
-                    <a href="#" className="mb_a">Reports</a>
+                    <a href="#" className="mb_a">eports</a>
                     <a href="#" className="mb_a">Articles</a>
                 </div>
         

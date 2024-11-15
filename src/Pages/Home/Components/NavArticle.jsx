@@ -24,7 +24,7 @@ function NavArticle(){
     };
 
     const handleComparision = () => {
-        
+        navigate("/comparision");
     };
 
     const handleReports = () => {

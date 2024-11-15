@@ -38,7 +38,6 @@
               <option value="slanted">Slanted</option>
               <option value="multiple">Multiple Sections</option>
             </select>
-            <ChevronDown className="RE-select-icon" />
           </div>
           <button type="submit" className="RE-submit-button">
             Calculate Potential
